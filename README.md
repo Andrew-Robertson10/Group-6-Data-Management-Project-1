@@ -1,5 +1,5 @@
 # Group-6-Data-Management-Project-1
-# MIST 4610 Group Project #1: Music Industry Data Model
+# Group 6 - MIST 4610 Group Project #1 - Music Industry Data Model
 
 A brief description of what this project does and who it's for
 
