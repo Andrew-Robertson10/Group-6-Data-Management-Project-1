@@ -1,7 +1,7 @@
 # Group-6-Data-Management-Project-1
 # Group 6 - MIST 4610 Group Project #1 - Music Industry Data Model
 
-A brief description of what this project does and who it's for
+This project models a database for the music industry, including record labels, artists, songs, concerts, and fans. It shows how the different entities interact with each other in the music industry. We also demonstrate practical SQL queries for this model to show how it can be used in a real-world context. 
 
 
 ## Authors
