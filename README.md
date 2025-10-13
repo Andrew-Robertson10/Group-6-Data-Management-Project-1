@@ -13,7 +13,7 @@ This is just a basic version of a data model that I created. if you want to writ
 
 For song: add genre, length
 
-For album: add release date
+For album: add release date, awards received (or maybe add a new entity for awards, with a 1-M relationship to artist?)
 
 For venue: add location
 
