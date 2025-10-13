@@ -7,6 +7,7 @@ This project models a database for the music industry, including record labels, 
 ## Authors
 
 - Maxwell Stewart [@maxwellstewart](https://github.com/maxwellstewart)
+- Andrew Robertson [@andrewrobertson](https://github.com/Andrew-Robertson10)
 - everyone else write ur name here in this format
 
 This is just a basic version of a data model that I created. if you want to write down any changes you want to make to it and we can discuss as a group.
