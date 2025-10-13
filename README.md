@@ -9,7 +9,9 @@ This project models a database for the music industry, including record labels, 
 - Maxwell Stewart [@maxwellstewart](https://github.com/maxwellstewart)
 - Andrew Robertson [@andrewrobertson](https://github.com/Andrew-Robertson10)
 - Alex Zou [@alexzou](https://github.com/FireguyZou123)
+- AJ Willis[@AJWillis](https://github.com/AJWillis172)
 - everyone else write ur name here in this format
+  
 
 If you want to write down any changes you want to make to it and we can discuss as a group.
 
