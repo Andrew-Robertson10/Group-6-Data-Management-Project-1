@@ -12,12 +12,5 @@ This project models a database for the music industry, including record labels, 
 
 This is just a basic version of a data model that I created. if you want to write down any changes you want to make to it and we can discuss as a group.
 
-For song: add genre, length
-
-For album: add release date, awards received (or maybe add a new entity for awards, with a 1-M relationship to album?)
-
-For venue: add location
-
-For artist: add personal info like their address, age, contact info?
 
 <img width="919" height="693" alt="Image" src="https://github.com/user-attachments/assets/77e2c9ee-9222-4f24-882c-487a7a8713c2" />
