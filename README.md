@@ -12,4 +12,4 @@ This project models a database for the music industry, including record labels, 
   
 
 
-<img width="940" height="861" alt="Image" src="https://github.com/user-attachments/assets/2b827110-94d1-4f11-aaa1-1d4971d4206b" />
+<img width="940" height="861" alt="Image" src="https://github.com/user-attachments/assets/76d8f2e7-ad9d-4234-872c-bcb6a5660ee6" />
