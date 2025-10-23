@@ -13,7 +13,7 @@ The task at hand is to create a model for a database of the music industry, incl
 
 ## Data Model
 Add explanation for the model here
-<img width="940" height="861" alt="Image" src="https://github.com/user-attachments/assets/76d8f2e7-ad9d-4234-872c-bcb6a5660ee6" />
+<img width="953" height="875" alt="Image" src="https://github.com/user-attachments/assets/1347cce8-75ab-4eea-95f8-182b9d7928a5" />
 
 ## Data Dictionary
 
