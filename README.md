@@ -27,5 +27,18 @@ JOIN Artist ON Concert.artistID = Artist.ArtistID;
 
 This query is useful for determining which artists a fan likes the most and displaying the results in an easy-to-read format. If someone has attended an artist's concert, it is logical to assume that they love that artist more than the average fan. This information can be useful for targeting advertisements, new music releases, and merchandise by the artist.
 
+Query 2 
+Lists each album’s ID and title, the album’s primary artist, and the number of songs on that album, returning only albums that contain at least one song and ordering results from most tracks to fewest. 
+SELECT Album.albumID, Album.albumName, Artist.artistName,COUNT(Song.songID) AS song_count
+FROM Album 
+JOIN Artist ON Artist.artistID = Album.artistID 
+JOIN Song ON Song.albumID = Album.albumID 
+GROUP BY Album.albumID, Album.albumName, Artist.artistName 
+ORDER BY song_count DESC;
+
+This query reveals which albums have the largest tracklists so product, marketing, and A&R(Artists and Repertoire) teams can prioritize releases for deluxe editions, bundle or promotion opportunities. It also helps identify albums with high track counts that may warrant additional marketing investment.
+
+
+
 ## Database Information
 
