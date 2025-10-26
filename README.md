@@ -34,6 +34,8 @@ The Venue entity includes details about the venue's location, name, and maximum 
 <img width="957" height="875" alt="Image" src="https://github.com/user-attachments/assets/3c520930-4e7b-425d-a297-4b3b1fabb744" />
 
 ## Data Dictionary
+<img width="932" height="406" alt="Image" src="https://github.com/user-attachments/assets/3475d326-9ebd-4ffa-9dbb-4315dba0e269" />
+
 
 ## Queries
 Query 1 lists each fan's name as well as the names of the artists whose concerts they have attended.
