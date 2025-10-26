@@ -9,6 +9,7 @@ The task at hand is to create a model for a database of the music industry, incl
 - Andrew Robertson [@Andrew-Robertson10](https://github.com/Andrew-Robertson10)
 - Alex Zou [@FireguyZou123](https://github.com/FireguyZou123)
 - AJ Willis[@AJWillis172](https://github.com/AJWillis172)
+- Aakash Parmar [@aakashbparmar](https://github.com/aakashbparmar)
   
 
 ## Data Model
