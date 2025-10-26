@@ -106,6 +106,8 @@ JOIN Venue ON venueID = venueID
 GROUP BY venueID, venueName, city
 ORDER BY COUNT(*) DESC;
 
+This query is useful for artists to use when planning concerts. They may want to look for venues in cities that they are personally unfamiliar with and use the most popular venue as a starting point for their research. Venues that have hosted many concerts have likely gained their status for a reason, and they may be more suitable than other venues for concerts.
+
 
 ## Database Information
 
