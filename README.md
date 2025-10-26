@@ -79,7 +79,29 @@ ORDER BY song_count DESC;
 
 This query reveals which albums have the largest tracklists so product, marketing, and A&R(Artists and Repertoire) teams can prioritize releases for deluxe editions, bundle or promotion opportunities. It also helps identify albums with high track counts that may warrant additional marketing investment.
 
+Query 3
+Lists each artist's name, ID, and most-awarded album
 
+SELECT
+  Artist.artistID,
+  Artist.artistName,
+  Album.albumID,
+  Album.albumName,
+  (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
+FROM Artist
+JOIN Album ON Album.artistID = Artist.artistID
+WHERE
+  (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
+  =
+  (
+    SELECT MAX(
+      (SELECT COUNT(*) FROM Award AS artistawards WHERE artistawards.albumID = albumawards.albumID)
+    )
+    FROM Album albumawards
+    WHERE albumawards.artistID = Artist.artistID
+  );
+
+This query is useful for artists and producers to see which album an artist produced was the most popular and critically acclaimed. It can help the artist learn what types of music their fans like and what type of music to make in the future.
 
 ## Database Information
 
