@@ -36,6 +36,26 @@ The Venue entity includes details about the venue's location, name, and maximum 
 ## Data Dictionary
 <img width="932" height="406" alt="Image" src="https://github.com/user-attachments/assets/3475d326-9ebd-4ffa-9dbb-4315dba0e269" />
 
+<img width="925" height="607" alt="Image" src="https://github.com/user-attachments/assets/90ffb5d5-075f-43a4-bec9-9cda05d1f29a" />
+
+<img width="951" height="366" alt="Image" src="https://github.com/user-attachments/assets/9f9c82bb-c6a6-44f2-b0f6-4f03763fc808" />
+
+<img width="638" height="623" alt="Image" src="https://github.com/user-attachments/assets/63b48cd0-4c09-4a89-828f-4b155459a47c" />
+
+<img width="637" height="577" alt="Image" src="https://github.com/user-attachments/assets/730d5d1d-0aff-4e60-b6f0-e32479867b0a" />
+
+<img width="928" height="667" alt="Image" src="https://github.com/user-attachments/assets/e32405f7-6528-4ec2-802f-f8104b5d4f8e" />
+
+<img width="928" height="685" alt="Image" src="https://github.com/user-attachments/assets/f2483075-bf33-4454-985f-7e5bcd2b14da" />
+
+<img width="861" height="447" alt="Image" src="https://github.com/user-attachments/assets/c03a230c-454b-47ec-9fdc-7c97ce309388" />
+
+<img width="827" height="447" alt="Image" src="https://github.com/user-attachments/assets/9eb3fb1d-6d83-4069-8a51-fc47c60d888f" />
+
+<img width="852" height="432" alt="Image" src="https://github.com/user-attachments/assets/b7cbee45-85a1-4819-93a8-ee386500b7c5" />
+
+<img width="836" height="662" alt="Image" src="https://github.com/user-attachments/assets/7c2bc8be-581b-4933-a22b-56d91e6a9f7c" />
+
 
 ## Queries
 Query 1 lists each fan's name as well as the names of the artists whose concerts they have attended.
