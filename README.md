@@ -82,16 +82,10 @@ This query reveals which albums have the largest tracklists so product, marketin
 Query 3
 Lists each artist's name, ID, and most-awarded album
 
-SELECT
-  Artist.artistID,
-  Artist.artistName,
-  Album.albumID,
-  Album.albumName,
-  (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
+SELECT Artist.artistID, Artist.artistName, Album.albumID, Album.albumName, (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
 FROM Artist
 JOIN Album ON Album.artistID = Artist.artistID
-WHERE
-  (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
+WHERE (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
   =
   (
     SELECT MAX(
