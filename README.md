@@ -12,7 +12,25 @@ The task at hand is to create a model for a database of the music industry, incl
   
 
 ## Data Model
-Add explanation for the model here
+Explanation of the Data Model:
+
+Our model is based on the structure of the music entity. The recordLabel entity represents a record label which represents many artists. Therefore, there is a one-to-many relationships between RecordLabel and Artist.
+
+An Artist produces many albums and many songs. Artists can also create collaborations which include a primary artist and secondary artist. The Collaboration entity has two one-to-many relationships with Artist to represent this relationship. Many songs can be collaborations featuring many artists, so Collaboration is used as an associative entity between Song and Artist to represent this relationship.
+
+An Album contains many songs, so there is a one-to-many relationship between Album and Songs.
+
+Albums or separate songs can win awards. The Award entity features one-to-many relationships between Album and Song to represent the albums and songs that win awards. The Award entity also features other details about the award, including its name, year, and category. Some awards such as the Grammys give the same award each year for different categories, such as best new artist, best song of specific genres, and best music video, so this attribute highlights the difference between awards given in these categories.
+
+The Concert entity is identified by the artist's ID, venue's ID, date, start time, and end time. It also features details about the artist lineup if there are secondary artists at the concert.
+
+ConcertsAttended is an associative entity between the many-to-many relationship between Concert and Fan. Many fans can attend many different concerts.
+
+The Fan entity is identified by the fan's unique ID number and includes details about their name and the concert tickets they currently hold. The fan entity is used to keep track of people who attend artists' concerts.
+
+The Venue entity includes details about the venue's location, name, and maximum occupancy. It features a one-to-one relationship with Employee to identify the manager of the venue. It also has a one-to-many relationship with Employee to keep track of all of the employees that work at each venue. Many employees work at one venue, and one employee is designated as the manager of one venue. The Employee attribute features the employee's identifying ID number and details about their name, address, and the venue they work at. Employee also has a recursive one-to-many relationship with itself to identify an employee's supervisor. One employee supervises multiple other employees.
+
+
 <img width="957" height="875" alt="Image" src="https://github.com/user-attachments/assets/3c520930-4e7b-425d-a297-4b3b1fabb744" />
 
 ## Data Dictionary
