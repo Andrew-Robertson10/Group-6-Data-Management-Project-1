@@ -109,5 +109,17 @@ ORDER BY COUNT(*) DESC;
 This query is useful for artists to use when planning concerts. They may want to look for venues in cities that they are personally unfamiliar with and use the most popular venue as a starting point for their research. Venues that have hosted many concerts have likely gained their status for a reason, and they may be more suitable than other venues for concerts.
 
 
+Query 5
+Lists artists who have released at least 3 albums.
+SELECT Artist.artistID, artistName,
+ COUNT(albumID) AS "Album count"
+FROM Artist
+JOIN Album ON Artist.artistID = Album.artistID
+GROUP BY Artist.artistID, artistName
+HAVING COUNT(albumID) > 3
+ORDER BY COUNT(albumID) DESC;
+
+This query is useful because it highlights experienced and established artists in the industry. A manager could use this information to seek out and invest in artists who have the potential to expand their brand through collaborations with other artists, concerts, and product launches.
+
 ## Database Information
 
