@@ -97,5 +97,15 @@ WHERE (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
 
 This query is useful for artists and producers to see which album an artist produced was the most popular and critically acclaimed. It can help the artist learn what types of music their fans like and what type of music to make in the future.
 
+
+Query 4
+Lists the ID and name of each venue and orders them by the number of concerts held at the venue. The most popular venues with the most concerts are listed first, while venues with the least number of concerts are listed last.
+SELECT Venue.venueID, Venue.venueName, Venue.city, COUNT(*) AS "Number of Concerts"
+FROM Concert
+JOIN Venue ON venueID = venueID
+GROUP BY venueID, venueName, city
+ORDER BY COUNT(*) DESC;
+
+
 ## Database Information
 
