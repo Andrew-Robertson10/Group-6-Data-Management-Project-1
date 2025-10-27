@@ -121,5 +121,17 @@ ORDER BY COUNT(albumID) DESC;
 
 This query is useful because it highlights experienced and established artists in the industry. A manager could use this information to seek out and invest in artists who have the potential to expand their brand through collaborations with other artists, concerts, and product launches.
 
+
+Query 6
+Return every venue with its name and the number of employees who work there, including venues with zero employees, sorted from most staffed to least staffed
+SELECT Venue.venueID, Venue.venueName, COUNT(Employee.employeeID) AS employee_count
+FROM Venue
+LEFT JOIN Employee ON Employee.venueID = Venue.venueID
+GROUP BY Venue.venueID, Venue.venueName
+ORDER BY employee_count DESC;
+
+Provides a quick staffing snapshot per location so managers can identify overstaffed or understaffed venues, allocate or reassign personnel, plan hiring, and prioritize operational support where headcount is low.
+
+
 ## Database Information
 
