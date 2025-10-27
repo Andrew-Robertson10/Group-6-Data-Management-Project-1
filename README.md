@@ -59,11 +59,911 @@ The Venue entity includes details about the venue's location, name, and maximum 
 
 ## Queries
 Query 1 lists each fan's name as well as the names of the artists whose concerts they have attended.
-SELECT fanName, artistName
+Execute:
+> SELECT fanName, artistName
 FROM Fan
 JOIN ConcertsAttended ON ConcertsAttended.fanID = Fan.fanID
-JOIN Concert ON ConcertsAttended.date(s) = Concert.date(s) AND ConcertsAttended.startTime Concert.startTime AND ConcertsAttended.endTime = Concert.endTime
-JOIN Artist ON Concert.artistID = Artist.ArtistID;
+JOIN Concert ON ConcertsAttended.date = Concert.date AND ConcertsAttended.startTime = Concert.startTime AND ConcertsAttended.endTime = Concert.endTime
+JOIN Artist ON Concert.headlinerArtistID = Artist.ArtistID
+
++ ------------ + --------------- +
+| fanName      | artistName      |
++ ------------ + --------------- +
+| Xerxes Weedall | Taylor Swift    |
+| Hilario Forsythe | Taylor Swift    |
+| Morie Risdale | Taylor Swift    |
+| Noel Kubiak  | Taylor Swift    |
+| Anabel Pywell | Taylor Swift    |
+| Layne Lofts  | Taylor Swift    |
+| Raul Gillyett | Taylor Swift    |
+| Noble Regan  | Taylor Swift    |
+| Kris Mingay  | Taylor Swift    |
+| Estevan Simmans | Taylor Swift    |
+| Deni Bugbird | Ed Sheeran      |
+| Selestina Reisen | Ed Sheeran      |
+| Dionne Keaveny | Ed Sheeran      |
+| Minny Tungate | Ed Sheeran      |
+| Anabel Pywell | Lady Gaga       |
+| Kacey Grayson | Lady Gaga       |
+| Bary Halfacree | Lady Gaga       |
+| Marcie Wenger | Lady Gaga       |
+| Bary Halfacree | Justin Bieber   |
+| Christean O'Riordan | Justin Bieber   |
+| Denise Bugdale | Justin Bieber   |
+| Jamie Slaght | Justin Bieber   |
+| Beatrice Snel | Justin Bieber   |
+| L;urette Izacenko | Justin Bieber   |
+| Katerine Dullaghan | Justin Bieber   |
+| Dionne Keaveny | Justin Bieber   |
+| Selinda Addenbrooke | Justin Bieber   |
+| Joanie Abbots | Justin Bieber   |
+| Belicia Lillicrop | Justin Bieber   |
+| Beltran Myles | Katy Perry      |
+| Bary Halfacree | Katy Perry      |
+| Lowe Traynor | Katy Perry      |
+| Scotti Crowche | Katy Perry      |
+| Karlotta Montfort | Katy Perry      |
+| Burr Dunckley | Katy Perry      |
+| Marillin Winkless | Katy Perry      |
+| Tedd Eaglen  | Katy Perry      |
+| Rhiamon Grigolli | Katy Perry      |
+| Efren Sutherns | Katy Perry      |
+| Eirena Middler | Katy Perry      |
+| Nettie Heintze | Katy Perry      |
+| Beltran Myles | Bruno Mars      |
+| Rhiamon Ceccoli | Bruno Mars      |
+| Auria Simeoni | Bruno Mars      |
+| Joanie Abbots | Bruno Mars      |
+| Estevan Simmans | Bruno Mars      |
+| Gerhardt Keaves | Bruno Mars      |
+| Marisa Halwell | Bruno Mars      |
+| L;urette Izacenko | Bruno Mars      |
+| Neila Perch  | Bruno Mars      |
+| Tyrus Manuel | Bruno Mars      |
+| Elie Goad    | Bruno Mars      |
+| Kermie D'Almeida | Bruno Mars      |
+| Even Battle  | Bruno Mars      |
+| Lenka Travers | Bruno Mars      |
+| Milton Arkow | Bruno Mars      |
+| Dania Budget | Bruno Mars      |
+| Ronni Quodling | Bruno Mars      |
+| Berke Oaker  | Bruno Mars      |
+| Pennie Piddington | Bruno Mars      |
+| Marcelle Hancock | Bruno Mars      |
+| Winni Espadero | Bruno Mars      |
+| Shalna Ateridge | Bruno Mars      |
+| Jaye Trosdall | Bruno Mars      |
+| Rheta Benes  | Bruno Mars      |
+| Dania Budget | Bruno Mars      |
+| Joelynn Tilby | Bruno Mars      |
+| Morie Risdale | Bruno Mars      |
+| Karlotta Montfort | Bruno Mars      |
+| Bary Halfacree | Adele           |
+| Orelie Trinbey | Adele           |
+| Dallas Tidbald | Adele           |
+| Rey Hammersley | Adele           |
+| Denise Bugdale | Adele           |
+| Alberta McGruar | Adele           |
+| Flore Storck | Adele           |
+| Carol-jean Lewsley | Adele           |
+| Christean O'Riordan | Adele           |
+| Jeffry Ricart | Adele           |
+| Clari Gymblett | Adele           |
+| Arabelle Curness | Adele           |
+| Stella Tills | Adele           |
+| Joellyn Lamplough | Nicki Minaj     |
+| Linnie Ponnsett | Nicki Minaj     |
+| Rica Lawford | Nicki Minaj     |
+| Murry Benion | Nicki Minaj     |
+| Brigida Spratling | Nicki Minaj     |
+| Wait Whisker | Nicki Minaj     |
+| Linnie Ponnsett | Nicki Minaj     |
+| Cos Northern | Nicki Minaj     |
+| Murry Benion | Nicki Minaj     |
+| Sadye Ellcome | Nicki Minaj     |
+| Hanan Headrick | Nicki Minaj     |
+| Elroy Aysh   | Nicki Minaj     |
+| Valentina Westell | Nicki Minaj     |
+| Dannie de Villier | Nicki Minaj     |
+| Sylvia Giacopetti | Nicki Minaj     |
+| Nady Tennewell | Nicki Minaj     |
+| Jacquelin Burnand | Coldplay        |
+| Tedd Eaglen  | Coldplay        |
+| Leslie Myott | Coldplay        |
+| Averill Ehrat | Coldplay        |
+| Lynn Meckiff | Coldplay        |
+| Clyve Beagin | Maroon 5        |
+| Tedd Eaglen  | Maroon 5        |
+| Doll Greenley | Maroon 5        |
+| Aindrea De Cruce | Maroon 5        |
+| Bradly MacGill | Maroon 5        |
+| Bary Halfacree | Maroon 5        |
+| Avrit Deerness | Maroon 5        |
+| Auria Simeoni | Maroon 5        |
+| Ker Quick    | Maroon 5        |
+| Jethro Cheston | Maroon 5        |
+| Britta Etty  | Maroon 5        |
+| Alberta McGruar | Maroon 5        |
+| Klemens Stones | Maroon 5        |
+| Flore Island | Maroon 5        |
+| Adriena Bloan | Maroon 5        |
+| Lorenza Hollyland | Maroon 5        |
+| Hilario Forsythe | Maroon 5        |
+| Sammy Brendel | Maroon 5        |
+| Cosetta Haggith | Maroon 5        |
+| Francis Revie | Maroon 5        |
+| Gavin Cuttler | Maroon 5        |
+| Conant Hallett | Imagine Dragons |
+| Honoria Gippes | Imagine Dragons |
+| Bary Halfacree | Imagine Dragons |
+| Susette Armstead | Imagine Dragons |
+| Alanah Jaume | Imagine Dragons |
+| Felecia Borless | Imagine Dragons |
+| Cleveland Jessup | Imagine Dragons |
+| Gavin Cuttler | Imagine Dragons |
+| Tyrus Manuel | Imagine Dragons |
+| Tabby Muress | Imagine Dragons |
+| Aldric Roycroft | Imagine Dragons |
+| Kipp Chree   | Imagine Dragons |
+| Pennie Piddington | Sam Smith       |
+| Ermanno Raulston | Sam Smith       |
+| Raul Mendes  | Sam Smith       |
+| Klemens Stones | Sam Smith       |
+| Shaylah Begbie | Sam Smith       |
+| Mariya Carlett | Sia             |
+| Drew Sircombe | Sia             |
+| Stella Tills | Sia             |
+| Flore Island | Sia             |
+| Catharine Hele | Sia             |
+| Ernesto Rusling | Sia             |
+| Jeff Evett   | Sia             |
+| Carrissa Aris | Sia             |
+| Marilin Steet | Sia             |
+| Hoebart Loving | Sia             |
+| Darleen Lingfoot | Sia             |
+| Lowe Traynor | Sia             |
+| Roger Hindenberger | Sia             |
+| Barry Goodge | Sia             |
+| Ardath Twentyman | Sia             |
+| Danette Massei | Sia             |
+| Monah Bachmann | Sia             |
+| Burr Dunckley | Sia             |
+| Luella Ivasechko | Sia             |
+| Arabelle Curness | Sia             |
+| Phelia Churchward | Sia             |
+| Drugi Mattiussi | Lorde           |
+| Fabio Bottom | Lorde           |
+| Sada Edes    | Lorde           |
+| Ker Quick    | Lorde           |
+| Barry Goodge | Lorde           |
+| Brittaney De Maine | Lorde           |
+| Carin Castletine | Lorde           |
+| Paul Riehm   | Lorde           |
+| Monah Bachmann | Lorde           |
+| Augustin Triplet | Lorde           |
+| Cyndi Collins | Lorde           |
+| Cleo Peirpoint | Lorde           |
+| Alexandro Yushachkov | Lorde           |
+| Bary Halfacree | Lorde           |
+| Marcelle Hancock | Lorde           |
+| Luella Ivasechko | Lorde           |
+| Blaire Rosander | Lorde           |
+| Mac Figin    | Lorde           |
+| Adaline Louthe | Lorde           |
+| Arlen Bondy  | Lorde           |
+| Noel Kubiak  | Lorde           |
+| Mahala McArley | Miley Cyrus     |
+| Tiebold Gorges | Miley Cyrus     |
+| Manolo Trytsman | Miley Cyrus     |
+| Jaye Trosdall | John Legend     |
+| Gracia Binder | John Legend     |
+| Gaston Gehring | John Legend     |
+| Darleen Lingfoot | Dua Lipa        |
+| Debor Pietesch | Dua Lipa        |
+| Darius Veldman | Dua Lipa        |
+| Nonnah Morrish | Dua Lipa        |
+| Helen Garoghan | Dua Lipa        |
+| Pippo Bolliver | Dua Lipa        |
+| Nikolai Williment | Dua Lipa        |
+| Otes Cowp    | Dua Lipa        |
+| Davy Rollitt | Dua Lipa        |
+| Roanne Orridge | Dua Lipa        |
+| Anjanette McLeary | Calvin Harris   |
+| Isaiah Thresher | Calvin Harris   |
+| Dyna McAndrew | Calvin Harris   |
+| Alane Shelp  | Calvin Harris   |
+| Mil McInnery | Calvin Harris   |
+| Nowell Olivia | Calvin Harris   |
+| Maurise Wrathmall | Calvin Harris   |
+| Tallulah Hegg | Selena Gomez    |
+| Kris Mingay  | Selena Gomez    |
+| Dallas Tidbald | Selena Gomez    |
+| Leslie Myott | Selena Gomez    |
+| April Filipyev | Selena Gomez    |
+| Gratia Simm  | Selena Gomez    |
+| Carena Mounsey | Selena Gomez    |
+| Claire Oliveto | Selena Gomez    |
+| Isaiah Thresher | Selena Gomez    |
+| Saul Lindenberg | Selena Gomez    |
+| Whitby Hoffmann | Camila Cabello  |
+| Christean O'Riordan | Camila Cabello  |
+| Lenka Travers | Camila Cabello  |
+| Lenard Call  | Camila Cabello  |
+| Gerhardt Keaves | Camila Cabello  |
+| Xerxes Weedall | Camila Cabello  |
+| Finlay Douberday | Camila Cabello  |
+| Pooh Prine   | Camila Cabello  |
+| Torrin Spofford | Camila Cabello  |
+| Yul Pietzker | Camila Cabello  |
+| Delilah De L'Isle | Camila Cabello  |
+| Bordie Buzzing | Camila Cabello  |
+| Rodney Sibthorp | Camila Cabello  |
+| Brendin Zavattieri | Camila Cabello  |
+| Binnie Gomme | Camila Cabello  |
+| Kessiah Noke | Camila Cabello  |
+| Hi Wyllcock  | Camila Cabello  |
+| Nissy Mustin | Camila Cabello  |
+| Lowe Traynor | Camila Cabello  |
+| Hi Wyllcock  | Camila Cabello  |
+| Lesya Haack  | Post Malone     |
+| Blaire Rosander | Post Malone     |
+| Baldwin Eyrl | Post Malone     |
+| Thaine Thing | Post Malone     |
+| Frasier Brister | Post Malone     |
+| Karie Shimmans | Post Malone     |
+| Tera Easom   | Post Malone     |
+| Joelynn Tilby | Post Malone     |
+| Allyn Dewey  | Cardi B         |
+| Hanan Headrick | Cardi B         |
+| Beatrice Snel | Cardi B         |
+| Gill Audley  | Cardi B         |
+| Lynde Petran | Cardi B         |
+| Sarene Josebury | Cardi B         |
+| Catharine Hele | Cardi B         |
+| Vale Yakov   | Cardi B         |
+| Layne Lofts  | Cardi B         |
+| Beale Abatelli | Cardi B         |
+| Rheta Daw    | Cardi B         |
+| Catharine Hele | Cardi B         |
+| Jodie O'Dreain | Cardi B         |
+| Adriena Bloan | Jason Derulo    |
+| Joellyn Lamplough | Jason Derulo    |
+| Bard Cockett | Jason Derulo    |
+| Auria Simeoni | Jason Derulo    |
+| Rosalie Durston | Jason Derulo    |
+| Coralie Beric | Jason Derulo    |
+| Sylvia Giacopetti | Jason Derulo    |
+| Haskell Delort | Jason Derulo    |
+| Mac Figin    | Jason Derulo    |
+| Percy Younger | Jason Derulo    |
+| Gaston Gehring | Jason Derulo    |
+| Mirabella Fritchley | Jason Derulo    |
+| Marisa Halwell | Jason Derulo    |
+| Gavin Cuttler | Jason Derulo    |
+| Zollie Currin | Jason Derulo    |
+| Filmore Crolla | Jason Derulo    |
+| Tabby Muress | Jason Derulo    |
+| Reggi McLardie | Jason Derulo    |
+| Wait Whisker | Jason Derulo    |
+| Quinn Oliphand | Jason Derulo    |
+| Anabel Pywell | Halsey          |
+| Jilly Skudder | Halsey          |
+| Kacey Grayson | Halsey          |
+| Salvatore Casarili | Halsey          |
+| Wells Dyment | Halsey          |
+| Mirabella Fritchley | Halsey          |
+| Nonnah Morrish | Halsey          |
+| Nari Emerine | Halsey          |
+| Timofei Von Der Empten | Halsey          |
+| Shari Narracott | Halsey          |
+| Raul Mendes  | Halsey          |
+| Zollie Currin | Halsey          |
+| Ervin Von Brook | Halsey          |
+| Phillipp Clementucci | Halsey          |
+| Adaline Louthe | Halsey          |
+| Cherise Rubinlicht | Halsey          |
+| Nola Lehrmann | Halsey          |
+| Betsy Sherel | Halsey          |
+| Darius Veldman | Halsey          |
+| Stella Tills | Halsey          |
+| Hi Wyllcock  | Halsey          |
+| Grace Dealey | Halsey          |
+| Ernesto Rusling | Halsey          |
+| Flynn Giacomi | Halsey          |
+| Lexi Mallinar | Halsey          |
+| Claiborne Comar | Halsey          |
+| Chev Kepe    | Halsey          |
+| Danette Massei | Charlie Puth    |
+| Adelbert Hawney | Charlie Puth    |
+| Brittaney De Maine | Charlie Puth    |
+| L;urette Izacenko | Charlie Puth    |
+| Minny Tungate | Charlie Puth    |
+| Murry Benion | Charlie Puth    |
+| Joanie Abbots | Charlie Puth    |
+| Milton Arkow | Charlie Puth    |
+| Lynn Meckiff | Charlie Puth    |
+| Jamie Slaght | Charlie Puth    |
+| Carena Mounsey | Charlie Puth    |
+| Rozalie le Keux | Charlie Puth    |
+| Isaiah Thresher | Charlie Puth    |
+| Bary Halfacree | Charlie Puth    |
+| Vallie Faldo | Charlie Puth    |
+| Sacha Bunce  | Charlie Puth    |
+| Rebekkah Bignal | Marshmello      |
+| Marcie Wenger | Marshmello      |
+| Nari Emerine | Marshmello      |
+| Bary Halfacree | Marshmello      |
+| Christean O'Riordan | Marshmello      |
+| Poppy Pendlebery | Marshmello      |
+| Mia Chellenham | The Chainsmokers |
+| Sylvia Giacopetti | The Chainsmokers |
+| Averill Ehrat | The Chainsmokers |
+| Antonie Tregonna | The Chainsmokers |
+| Lorettalorna Cominetti | The Chainsmokers |
+| Amandi Mellon | P!nk            |
+| Eugene Cage  | P!nk            |
+| Shari Narracott | P!nk            |
+| Roana Zavattieri | P!nk            |
+| Fraze Dowling | P!nk            |
+| Vale Yakov   | P!nk            |
+| Katerine Dullaghan | P!nk            |
+| Phyllida Peare | P!nk            |
+| Chester Pencot | P!nk            |
+| Quinn Oliphand | P!nk            |
+| Cos Northern | P!nk            |
+| Magdalene Chapell | Lana Del Rey    |
+| Maurise Wrathmall | Lana Del Rey    |
+| Jeff Evett   | Eminem          |
+| Merilyn Macieiczyk | Eminem          |
+| Beatrice Snel | Eminem          |
+| Jacquelin Burnand | Eminem          |
+| Benjamen Maundrell | Eminem          |
+| Flory Braybrooks | Eminem          |
+| Manolo Trytsman | Eminem          |
+| Noel Kubiak  | Eminem          |
+| Shanan Hardes | Eminem          |
+| Xerxes Weedall | Eminem          |
+| Whit Hambleton | Eminem          |
+| Caresa O' Mullan | Eminem          |
+| Rozalie le Keux | Eminem          |
+| Wilt Atyea   | Eminem          |
+| Drugi Mattiussi | Shakira         |
+| Gracia Binder | Shakira         |
+| Rozalie le Keux | Shakira         |
+| Elroy Aysh   | Pitbull         |
+| Willamina Munkley | Pitbull         |
+| Erasmus Stretton | Pitbull         |
+| Marillin Winkless | Pitbull         |
+| Nate Creavan | Pitbull         |
+| Pennie Piddington | Pitbull         |
+| Herbie Burgwyn | Pitbull         |
+| Damiano Duckers | Pitbull         |
+| Selestina Reisen | Pitbull         |
+| Leonelle Schlagtmans | Pitbull         |
+| Flynn Giacomi | Pitbull         |
+| Rania Causby | Pitbull         |
+| Nelli Corrison | Pitbull         |
+| Even Battle  | Pitbull         |
+| Ronni Quodling | Pitbull         |
+| Eugene Cage  | Jennifer Lopez  |
+| Winthrop Casillis | Jennifer Lopez  |
+| Dallas Tidbald | Jennifer Lopez  |
+| Claire Oliveto | Jennifer Lopez  |
+| Jeremy O'Callaghan | Jennifer Lopez  |
+| Mirabella Fritchley | Jennifer Lopez  |
+| Beale Abatelli | Jennifer Lopez  |
+| Mureil Ropars | Jennifer Lopez  |
+| Magdalene Chapell | Jennifer Lopez  |
+| Ervin Von Brook | Jennifer Lopez  |
+| Isaiah Thresher | Jennifer Lopez  |
+| Dyna McAndrew | Jennifer Lopez  |
+| Saul Lindenberg | Jennifer Lopez  |
+| Sandy Durn   | Jennifer Lopez  |
+| Agnes Lambertazzi | Jennifer Lopez  |
+| Arabelle Curness | Jennifer Lopez  |
+| Clerkclaude Eisig | Jennifer Lopez  |
+| Amandi Mellon | Jennifer Lopez  |
+| Caresa O' Mullan | Jennifer Lopez  |
+| Luella Ivasechko | Jennifer Lopez  |
+| Elie Goad    | Jennifer Lopez  |
+| Chester Pencot | Jennifer Lopez  |
+| Cristiano Forsard | Jennifer Lopez  |
+| Legra Hallitt | Jennifer Lopez  |
+| Monti Chisman | Jennifer Lopez  |
+| Sibby O'Mullally | Jennifer Lopez  |
+| Erasmus Stretton | Usher           |
+| Marrilee Juzek | Usher           |
+| Salvatore Casarili | Usher           |
+| Bernard Donavan | Usher           |
+| Maria Ruck   | Usher           |
+| Morganica Cesaric | Usher           |
+| Elicia Bonifant | Usher           |
+| Nari Emerine | Usher           |
+| Efrem Currie | Usher           |
+| Stanislaw Ibbetson | Usher           |
+| Selestina Reisen | Usher           |
+| Jodie O'Dreain | Usher           |
+| Gratia Simm  | Avril Lavigne   |
+| Neila Perch  | Avril Lavigne   |
+| Joellyn Lamplough | Avril Lavigne   |
+| Ermanno Raulston | Avril Lavigne   |
+| Yvonne Braine | Avril Lavigne   |
+| Rodney Sibthorp | Avril Lavigne   |
+| Stanislaw Ibbetson | Avril Lavigne   |
+| Silvanus Struan | Avril Lavigne   |
+| Britta Etty  | Avril Lavigne   |
+| Estrellita Vasin | Avril Lavigne   |
+| Francis Revie | Avril Lavigne   |
+| Gavrielle Pumfrey | Avril Lavigne   |
+| Carena Mounsey | Avril Lavigne   |
+| Carena Mounsey | Avril Lavigne   |
+| Willie Chenery | Avril Lavigne   |
+| Coralie Beric | Avril Lavigne   |
+| Smitty Maudling | Avril Lavigne   |
+| Elicia Bonifant | Alicia Keys     |
+| Bernardina Gricewood | Alicia Keys     |
+| Linn Penbarthy | Alicia Keys     |
+| Bone Lackham | Alicia Keys     |
+| Zollie Currin | Alicia Keys     |
+| Janeen Rudolph | Alicia Keys     |
+| Hillier Dradey | Alicia Keys     |
+| Percy Younger | Alicia Keys     |
+| Norrie Rehme | Alicia Keys     |
+| Brittaney De Maine | Alicia Keys     |
+| Berke Oaker  | Britney Spears  |
+| Britta Etty  | Britney Spears  |
+| April Filipyev | Britney Spears  |
+| Marilin Steet | Britney Spears  |
+| Katerine Dullaghan | Britney Spears  |
+| Lynde Petran | Britney Spears  |
+| Percy Younger | Britney Spears  |
+| Edwin Bakes  | Britney Spears  |
+| Nissy Mustin | Christina Aguilera |
+| Bary Halfacree | Christina Aguilera |
+| Sarene Josebury | Christina Aguilera |
+| Kermy Norrington | Christina Aguilera |
+| Toinette Keirle | Christina Aguilera |
+| Christean O'Riordan | Kelly Clarkson  |
+| Cy Slaten    | Kelly Clarkson  |
+| Anjanette McLeary | Kelly Clarkson  |
+| Wait Whisker | Kelly Clarkson  |
+| Even Battle  | Kelly Clarkson  |
+| Efrem Currie | Kelly Clarkson  |
+| Raul Gillyett | Kelly Clarkson  |
+| Tabby Muress | Kelly Clarkson  |
+| Stanislaw Ibbetson | Kelly Clarkson  |
+| Bernardine Featherby | Kelly Clarkson  |
+| Sandy Durn   | Gwen Stefani    |
+| Otes Cowp    | Gwen Stefani    |
+| Finlay Douberday | Gwen Stefani    |
+| Edwin Bakes  | Gwen Stefani    |
+| Mair Trever  | Gwen Stefani    |
+| Berke Oaker  | Gwen Stefani    |
+| Sada Edes    | Gwen Stefani    |
+| Caspar Shave | Gwen Stefani    |
+| Betsy Sherel | Gwen Stefani    |
+| Beltran Myles | Gwen Stefani    |
+| Carena Mounsey | Gwen Stefani    |
+| Sandy Durn   | Gwen Stefani    |
+| Salvatore Casarili | Gwen Stefani    |
+| Karlik Barrat | Gwen Stefani    |
+| Juli Machent | Gwen Stefani    |
+| Smitty Maudling | Gwen Stefani    |
+| Jacquelin Burnand | Gwen Stefani    |
+| Gae Vogt     | Gwen Stefani    |
+| Helen Garoghan | Gwen Stefani    |
+| Lowe Traynor | Gwen Stefani    |
+| Garth Barabisch | Gwen Stefani    |
+| Valli Smither | Gwen Stefani    |
+| Tessie Dufall | Justin Timberlake |
+| Berte Brahm  | Justin Timberlake |
+| Lavinie Hardwidge | Justin Timberlake |
+| Eddie Papis  | Justin Timberlake |
+| Udale Myall  | Lil Nas X       |
+| Adriena Bloan | Lil Nas X       |
+| Norrie Rehme | Lil Nas X       |
+| Ermanno Raulston | Lil Nas X       |
+| Claire Oliveto | Lil Nas X       |
+| Bradly Helis | Lil Nas X       |
+| Erhart Broker | Lil Nas X       |
+| Grace Dealey | Lil Nas X       |
+| Evaleen Dofty | Lil Nas X       |
+| Michell Back | Lil Nas X       |
+| Georgena Reeveley | Lil Nas X       |
+| Willie Chenery | Lil Nas X       |
+| Griswold Meus | Lil Nas X       |
+| Tannie Pantridge | Lil Nas X       |
+| Cos Northern | Lil Nas X       |
+| Bradly MacGill | Lil Nas X       |
+| Gavin Cuttler | Lil Nas X       |
+| Kacey Grayson | Meghan Trainor  |
+| Laetitia Marnes | Meghan Trainor  |
+| Vallie Faldo | Meghan Trainor  |
+| Lenka Travers | Meghan Trainor  |
+| Huntley Androli | Meghan Trainor  |
+| Janeen Rudolph | Demi Lovato     |
+| Hoebart Loving | Demi Lovato     |
+| Karie Shimmans | Demi Lovato     |
+| Lorrin Karlolczak | Demi Lovato     |
+| Catharine Hele | Demi Lovato     |
+| Gaston Gehring | Demi Lovato     |
+| Elroy Aysh   | Demi Lovato     |
+| Dannie de Villier | One Direction   |
+| Yvonne Braine | One Direction   |
+| Gavin Cuttler | One Direction   |
+| Rey Hammersley | One Direction   |
+| Zollie Valerius | One Direction   |
+| Nonnah Morrish | One Direction   |
+| Tallulah Hegg | One Direction   |
+| Willamina Munkley | One Direction   |
+| Cos Northern | One Direction   |
+| Vale Yakov   | One Direction   |
+| Rheta Daw    | One Direction   |
+| Hartwell Goricke | One Direction   |
+| Penny Stadden | One Direction   |
+| Caresa O' Mullan | One Direction   |
+| Michell Back | One Direction   |
+| Isaiah Thresher | One Direction   |
+| Ramona Faircliffe | One Direction   |
+| Rodney Sibthorp | One Direction   |
+| Mirabella Fritchley | One Direction   |
+| Lorna Fatharly | Backstreet Boys |
+| Betta Pevreal | Backstreet Boys |
+| Sarene Josebury | Backstreet Boys |
+| Clementina Lemmertz | Backstreet Boys |
+| Lorrin Karlolczak | Backstreet Boys |
+| Bary Halfacree | Backstreet Boys |
+| Leonhard Tant | Backstreet Boys |
+| Cyndi Collins | Backstreet Boys |
+| Sandy Mordacai | NSYNC           |
+| Murry Benion | NSYNC           |
+| Bary Halfacree | NSYNC           |
+| Damiano Duckers | NSYNC           |
+| Odey Blackburne | NSYNC           |
+| Magdalene Chapell | NSYNC           |
+| Danyelle Steuart | NSYNC           |
+| Ollie Twining | NSYNC           |
+| Glenna Ference | Destiny's Child |
+| Denny Greening | Destiny's Child |
+| Stella Tills | Destiny's Child |
+| Delilah De L'Isle | Destiny's Child |
+| Arlen Maharey | Destiny's Child |
+| Claiborne Comar | Destiny's Child |
+| Thurstan Billingham | Destiny's Child |
+| Tobit Igounet | Destiny's Child |
+| Wyndham Dillon | Spice Girls     |
+| Arlen Maharey | Spice Girls     |
+| Salvatore Casarili | Spice Girls     |
+| Helen Garoghan | Spice Girls     |
+| Linn Penbarthy | Spice Girls     |
+| Zola Sawley  | Spice Girls     |
+| Nicola Stratten | Spice Girls     |
+| Karie Shimmans | Spice Girls     |
+| Maurise Wrathmall | Spice Girls     |
+| Katerine Dullaghan | Spice Girls     |
+| Wilt Atyea   | Spice Girls     |
+| Shaun Vickery | Spice Girls     |
+| Dante Simmans | Spice Girls     |
+| Monah Bachmann | Spice Girls     |
+| Rasia MacKeeg | Spice Girls     |
+| Christean O'Riordan | Spice Girls     |
+| Albert Ortsmann | Spice Girls     |
+| Carrissa Aris | Spice Girls     |
+| Marcie Wenger | The Beatles     |
+| Goldarina Nicolson | The Beatles     |
+| Phelia Churchward | The Beatles     |
+| Delilah De L'Isle | Queen           |
+| Roxine Mooney | Queen           |
+| Gracia Binder | Queen           |
+| Fabio Bottom | Queen           |
+| Amargo Knutsen | Queen           |
+| Milton Arkow | Queen           |
+| Damiano Duckers | Michael Jackson |
+| Vallie Faldo | Michael Jackson |
+| Caspar Shave | Michael Jackson |
+| Cristiano Forsard | Michael Jackson |
+| Nonnah Morrish | Michael Jackson |
+| Drugi Mattiussi | Elton John      |
+| Reggi McLardie | Elton John      |
+| Blaire Rosander | Elton John      |
+| Cleveland Jessup | Elton John      |
+| Clementina Lemmertz | Elton John      |
+| Carena Mounsey | Elton John      |
+| Maria Ruck   | Elton John      |
+| Karie Shimmans | Elton John      |
+| Shaylah Begbie | Elton John      |
+| Maurise Wrathmall | Elton John      |
+| Benedikt Van Der Vlies | Madonna         |
+| Madeline Agott | Madonna         |
+| Rebekkah Bignal | Madonna         |
+| Alanah Jaume | Madonna         |
+| Zollie Valerius | Madonna         |
+| Fraze Dowling | Madonna         |
+| Prudi Jales  | Whitney Houston |
+| Albert Ortsmann | Whitney Houston |
+| Mia Chellenham | Whitney Houston |
+| Juli Machent | Whitney Houston |
+| Alie O'Calleran | Whitney Houston |
+| Jamie Slaght | Whitney Houston |
+| Stacie Westman | Whitney Houston |
+| Nathan Newberry | Whitney Houston |
+| Herbie Burgwyn | Prince          |
+| Flore Storck | Prince          |
+| Janet Broker | Prince          |
+| Marisa Halwell | Prince          |
+| Roanne Orridge | Prince          |
+| Agnes Lambertazzi | Prince          |
+| Antone Fripps | Prince          |
+| Eirena Middler | Prince          |
+| Carena Mounsey | Prince          |
+| Benjamen Maundrell | Prince          |
+| Rasia MacKeeg | Prince          |
+| Burr Dunckley | Prince          |
+| Ervin Von Brook | Prince          |
+| Murry Benion | Prince          |
+| April Filipyev | Prince          |
+| Garth Barabisch | Prince          |
+| Efren Sutherns | Prince          |
+| Nowell Olivia | Prince          |
+| Simmonds Segges | Prince          |
+| Phyllida Peare | Bob Dylan       |
+| Ginnifer Mulkerrins | Bob Dylan       |
+| Pietrek Simounet | Bob Dylan       |
+| Sylvia Giacopetti | Bob Dylan       |
+| Thaine Thing | David Bowie     |
+| Nola Lehrmann | David Bowie     |
+| Nevil Mahomet | David Bowie     |
+| Pebrook Vittet | David Bowie     |
+| Fabio Bottom | David Bowie     |
+| Jobye Emett  | David Bowie     |
+| Laetitia Marnes | David Bowie     |
+| Tyrus Manuel | David Bowie     |
+| Burr Dunckley | David Bowie     |
+| Tabby Muress | David Bowie     |
+| Benedikt Van Der Vlies | Stevie Wonder   |
+| Gill Audley  | Stevie Wonder   |
+| Misha Canfer | Stevie Wonder   |
+| Madeline Agott | Stevie Wonder   |
+| Eugene Cage  | Stevie Wonder   |
+| Hanan Headrick | Janet Jackson   |
+| Roana Zavattieri | Janet Jackson   |
+| Zollie Currin | Janet Jackson   |
+| Layne Lofts  | Janet Jackson   |
+| Whit Hambleton | Janet Jackson   |
+| Scotti Crowche | Janet Jackson   |
+| Neila Perch  | Tina Turner     |
+| Suzanna Vitet | Tina Turner     |
+| Drew Sircombe | Tina Turner     |
+| Pietrek Simounet | Tina Turner     |
+| Stella Tills | Tina Turner     |
+| Misha Canfer | Tina Turner     |
+| Scotti Crowche | Tina Turner     |
+| Averill Ehrat | Tina Turner     |
+| Marcelle Hancock | Tina Turner     |
+| Rhiamon Grigolli | Tina Turner     |
+| Rhiamon Ceccoli | Tina Turner     |
+| Tabatha Berringer | Tina Turner     |
+| Tera Easom   | Tina Turner     |
+| Efrem Currie | Cher            |
+| Finlay Douberday | Cher            |
+| Arlen Bondy  | Cher            |
+| Sibby O'Mullally | Cher            |
+| Adelbert Hawney | Cher            |
+| Aindrea De Cruce | Cher            |
+| Melitta Prujean | Cher            |
+| Darius Veldman | Cher            |
+| Alistair Timmens | Barbra Streisand |
+| Wells Dyment | Barbra Streisand |
+| Stella Tills | Barbra Streisand |
+| Siffre Tattam | Frank Sinatra   |
+| Percy Younger | Frank Sinatra   |
+| Monah Bachmann | Frank Sinatra   |
+| Rheta Benes  | Frank Sinatra   |
+| Harlene Longfoot | Frank Sinatra   |
+| Dante Simmans | Frank Sinatra   |
+| Flory Braybrooks | Frank Sinatra   |
+| Sarene Josebury | Frank Sinatra   |
+| Kermy Norrington | Frank Sinatra   |
+| Estrellita Vasin | Frank Sinatra   |
+| Murry Benion | Frank Sinatra   |
+| Stacie Westman | Frank Sinatra   |
+| Christean O'Riordan | Frank Sinatra   |
+| Bernard Donavan | Frank Sinatra   |
+| Davy Rollitt | Elvis Presley   |
+| Nomi Mattaus | Elvis Presley   |
+| Leslie Myott | Elvis Presley   |
+| Moise Jebb   | Elvis Presley   |
+| Augustin Holbarrow | Johnny Cash     |
+| Gae Vogt     | Johnny Cash     |
+| Lorenza Hollyland | Johnny Cash     |
+| Drugi Mattiussi | Johnny Cash     |
+| Britta Etty  | Johnny Cash     |
+| Fidel Hukins | Johnny Cash     |
+| Fraze Dowling | Johnny Cash     |
+| Adriena Bloan | Johnny Cash     |
+| Gaston Gehring | Johnny Cash     |
+| Whitby Hoffmann | Willie Nelson   |
+| Tyrus Manuel | Willie Nelson   |
+| Mureil Ropars | Willie Nelson   |
+| Glenna Ference | Willie Nelson   |
+| Hartwell Goricke | Willie Nelson   |
+| Eddie Papis  | Willie Nelson   |
+| Bernardina Gricewood | Kenny Rogers    |
+| Suzanna Vitet | Kenny Rogers    |
+| Estrellita Vasin | Kenny Rogers    |
+| Alexandro Yushachkov | Kenny Rogers    |
+| Bone Lackham | Kenny Rogers    |
+| Orelie Trinbey | Merle Haggard   |
+| Phyllida Peare | Merle Haggard   |
+| Flore Storck | Merle Haggard   |
+| Lorna Fatharly | Merle Haggard   |
+| Ker Quick    | Merle Haggard   |
+| Marrilee Klauer | Merle Haggard   |
+| Darleen Lingfoot | George Strait   |
+| Yvonne Braine | George Strait   |
+| Nola Lehrmann | George Strait   |
+| Denny Greening | George Strait   |
+| Damiano Duckers | George Strait   |
+| Sharla Taberer | George Strait   |
+| Dania Budget | George Strait   |
+| Adiana Cockayme | George Strait   |
+| Minny Tungate | George Strait   |
+| Lorna Fatharly | Garth Brooks    |
+| Xavier Saladino | Garth Brooks    |
+| Roanne Orridge | Garth Brooks    |
+| Kacey Grayson | Garth Brooks    |
+| Ervin Von Brook | Garth Brooks    |
+| Sadye Ellcome | Garth Brooks    |
+| Coralie Beric | Garth Brooks    |
+| Lorenza Hollyland | Shania Twain    |
+| Phyllida Peare | Shania Twain    |
+| Valentina Westell | Shania Twain    |
+| Baldwin Eyrl | Shania Twain    |
+| Bary Halfacree | Shania Twain    |
+| Avrit Deerness | Shania Twain    |
+| Juli Machent | Shania Twain    |
+| Ker Quick    | Shania Twain    |
+| Agnola Shepstone | Shania Twain    |
+| Damiano Duckers | Shania Twain    |
+| Clari Gymblett | Shania Twain    |
+| Lauritz Oughtright | Shania Twain    |
+| Tobit Igounet | Shania Twain    |
+| Noel Kubiak  | Shania Twain    |
+| Darleen Lingfoot | Shania Twain    |
+| Winthrop Casillis | Shania Twain    |
+| Dannie de Villier | Shania Twain    |
+| Amargo Knutsen | Shania Twain    |
+| Antone Fripps | Shania Twain    |
+| Carlynn Worstall | Shania Twain    |
+| Cherise Rubinlicht | Carrie Underwood |
+| Alane Shelp  | Carrie Underwood |
+| Leonhard Tant | Blake Shelton   |
+| Toinette Keirle | Blake Shelton   |
+| Adiana Cockayme | Blake Shelton   |
+| Filmore Crolla | Blake Shelton   |
+| Murry Benion | Blake Shelton   |
+| Jaymee Costley | Blake Shelton   |
+| Ermanno Raulston | Blake Shelton   |
+| Rey Hammersley | Blake Shelton   |
+| Edwin Bakes  | Blake Shelton   |
+| Bernardine Featherby | Blake Shelton   |
+| Estele Stoyle | Blake Shelton   |
+| Cy Slaten    | Luke Bryan      |
+| Doll Greenley | Luke Bryan      |
+| Reggi McLardie | Luke Bryan      |
+| Averill Ehrat | Luke Bryan      |
+| Berte Brahm  | Luke Bryan      |
+| Marrilee Juzek | Jason Aldean    |
+| Sibby O'Mullally | Jason Aldean    |
+| Pennie Piddington | Jason Aldean    |
+| April Filipyev | Jason Aldean    |
+| Claybourne Bedward | Jason Aldean    |
+| Simmonds Segges | Jason Aldean    |
+| Christean O'Riordan | Keith Urban     |
+| Marcie Wenger | Keith Urban     |
+| Nicola Stratten | Keith Urban     |
+| Marrilee Klauer | Keith Urban     |
+| Shaun Vickery | Keith Urban     |
+| Bernardine Featherby | Keith Urban     |
+| Mariya Carlett | Keith Urban     |
+| Merrel Barbey | Keith Urban     |
+| Belicia Lillicrop | Keith Urban     |
+| Cos Northern | Keith Urban     |
+| Norrie Rehme | Tim McGraw      |
+| Finlay Douberday | Tim McGraw      |
+| Anjanette McLeary | Tim McGraw      |
+| Xerxes Weedall | Tim McGraw      |
+| Frankie Midlar | Tim McGraw      |
+| Darleen Lingfoot | Tim McGraw      |
+| Otes Cowp    | Tim McGraw      |
+| Vicki Portugal | Tim McGraw      |
+| Tabby Muress | Tim McGraw      |
+| Lenard Call  | Tim McGraw      |
+| Rosalie Durston | Tim McGraw      |
+| Herbie Burgwyn | Tim McGraw      |
+| Gaston Gehring | Tim McGraw      |
+| Isaiah Thresher | Tim McGraw      |
+| Marisa Halwell | Tim McGraw      |
+| Honoria Gippes | Tim McGraw      |
+| Shari Narracott | Tim McGraw      |
+| Bone Lackham | Tim McGraw      |
+| Nikolia Tenpenny | Tim McGraw      |
+| Nikolai Williment | Tim McGraw      |
+| Christean O'Riordan | Faith Hill      |
+| Jaye Trosdall | Faith Hill      |
+| Cosetta Haggith | Faith Hill      |
+| Reggi McLardie | Faith Hill      |
+| Sarene Josebury | Faith Hill      |
+| Adelbert Hawney | Faith Hill      |
+| Aindrea De Cruce | Faith Hill      |
+| Trumann Wiffler | Faith Hill      |
+| Fitzgerald Hefferan | Faith Hill      |
+| Helen Garoghan | Faith Hill      |
+| Rheta Daw    | Faith Hill      |
+| Lavinie Hardwidge | Faith Hill      |
+| Lorrin Karlolczak | Faith Hill      |
+| Madeline Agott | Faith Hill      |
+| Suzanna Vitet | Faith Hill      |
+| Shari Narracott | Faith Hill      |
+| Whit Hambleton | Faith Hill      |
+| Hanan Headrick | Faith Hill      |
+| Carlynn Worstall | Faith Hill      |
+| Wyndham Dillon | Miranda Lambert |
+| Catharine Hele | Miranda Lambert |
+| Kinsley Swarbrick | Miranda Lambert |
+| Timofei Von Der Empten | Miranda Lambert |
+| Sidonia Witul | Miranda Lambert |
+| Thurstan Billingham | Miranda Lambert |
+| Rosalie Durston | Miranda Lambert |
+| Carena Mounsey | Miranda Lambert |
+| Augustin Holbarrow | Miranda Lambert |
+| Delilah De L'Isle | Miranda Lambert |
+| Jeremy O'Callaghan | Miranda Lambert |
+| Saul Lindenberg | Miranda Lambert |
+| Mureil Ropars | Miranda Lambert |
+| Binnie Gomme | Miranda Lambert |
+| Alessandra Cheshir | Miranda Lambert |
+| Efren Sutherns | Miranda Lambert |
+| Salvatore Casarili | Zac Brown Band  |
+| Dannie de Villier | Zac Brown Band  |
+| Luella Ivasechko | Zac Brown Band  |
+| Valentina Westell | Zac Brown Band  |
+| Goldarina Nicolson | Zac Brown Band  |
+| Raul Mendes  | Zac Brown Band  |
+| Lorrin Karlolczak | Zac Brown Band  |
+| Sadye Pancoast | Zac Brown Band  |
+| Warren Cammomile | Zac Brown Band  |
+| Shalna Ateridge | Zac Brown Band  |
+| Wyndham Dillon | Zac Brown Band  |
+| Nola Lehrmann | Zac Brown Band  |
+| Goldarina Nicolson | Zac Brown Band  |
+| Torrin Spofford | Zac Brown Band  |
+| Shaun Vickery | Zac Brown Band  |
+| Maurise Wrathmall | Zac Brown Band  |
+| Jaye Trosdall | Lady A          |
+| Roger Hindenberger | Lady A          |
+| Wayne Cogzell | Lady A          |
+| Tobit Igounet | Lady A          |
+| Simmonds Segges | Lady A          |
+| Trumann Wiffler | Lady A          |
+| Misha Canfer | Lady A          |
+| Vallie Faldo | Lady A          |
+| Antonie Tregonna | Lady A          |
+| Agnola Shepstone | Lady A          |
+| Christean O'Riordan | Lady A          |
+| Berke Bronot | Lady A          |
+| Worthington Demeza | Lady A          |
+| Barbara-anne Gleave | Lady A          |
+| Klemens Stones | Lady A          |
+| Jobye Emett  | Lady A          |
+| Filmore Crolla | Little Big Town |
+| Clyve Beagin | Little Big Town |
+| Arlen Maharey | Little Big Town |
+| Joelynn Tilby | Little Big Town |
+| Moise Jebb   | Little Big Town |
++ ------------ + --------------- +
+892 rows
+
 
 This query is useful for determining which artists a fan likes the most and displaying the results in an easy-to-read format. If someone has attended an artist's concert, it is logical to assume that they love that artist more than the average fan. This information can be useful for targeting advertisements, new music releases, and merchandise by the artist.
 
