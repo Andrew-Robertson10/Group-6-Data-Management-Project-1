@@ -160,5 +160,15 @@ ORDER BY direct_reports DESC;
 
 This query is useful for organizational and budgetary insights in the event planning industry. A venue's higher management can look at this data to see which employees may be stretched too thin in their job duties. This data can also be used to streamline accountability among large teams of employees within different divisions.
 
+Query 9
+SELECT Album.albumID, Album.albumName, Artist.artistName, COUNT(Song.songID) AS SongCount
+FROM Album
+JOIN Artist ON Artist.artistID = Album.artistID
+JOIN Song ON Song.albumID = Album.albumID
+GROUP BY Album.albumID, Album.albumName, Artist.artistName
+ORDER BY SongCount DESC;
+
+This query is important for identifying which albums represent the largest creative outputs. Albums with more songs indicate more production effort or studio time, which reflects on budgeting. It can also help allocate resources and show trends in artist productivity.
+
 ## Database Information
 
