@@ -55,7 +55,7 @@ The Venue entity includes details about the venue's location, name, and maximum 
 
 <img width="852" height="432" alt="Image" src="https://github.com/user-attachments/assets/b7cbee45-85a1-4819-93a8-ee386500b7c5" />
 
-<img width="836" height="662" alt="Image" src="https://github.com/user-attachments/assets/7c2bc8be-581b-4933-a22b-56d91e6a9f7c" />
+<img width="815" height="691" alt="Image" src="https://github.com/user-attachments/assets/4a39f47c-0fec-4310-960d-d06ba377b6c5" />
 
 
 ## Queries
