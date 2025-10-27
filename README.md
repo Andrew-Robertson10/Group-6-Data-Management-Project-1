@@ -1233,7 +1233,9 @@ Query 3
 
 Lists each artist's name, ID, and most-awarded album.
 
-SELECT Artist.artistID, Artist.artistName, Album.albumID, Album.albumName, (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
+```
+Execute:
+> SELECT Artist.artistID, Artist.artistName, Album.albumID, Album.albumName, (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
 FROM Artist
 JOIN Album ON Album.artistID = Artist.artistID
 WHERE (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
@@ -1244,7 +1246,225 @@ WHERE (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID)
     )
     FROM Album albumawards
     WHERE albumawards.artistID = Artist.artistID
-  );
+  )
+
++ ------------- + --------------- + ------------ + -------------- + ---------------- +
+| artistID      | artistName      | albumID      | albumName      | Award Count      |
++ ------------- + --------------- + ------------ + -------------- + ---------------- +
+| 4             | Ariana Grande   | 3            | Thank U, Next  | 4                |
+| 54            | Demi Lovato     | 4            | Tell Me You Love Me | 0                |
+| 76            | Johnny Cash     | 5            | With His Hot and Blue Guitar | 0                |
+| 22            | Miley Cyrus     | 7            | Endless Summer Vacation | 0                |
+| 34            | Marshmello      | 8            | Single         | 0                |
+| 23            | John Legend     | 9            | Love in the Future | 0                |
+| 67            | Bob Dylan       | 10           | The Freewheelin' Bob Dylan | 0                |
+| 86            | Blake Shelton   | 12           | Red River Blue | 1                |
+| 69            | Stevie Wonder   | 14           | The Woman in Red (Soundtrack) | 1                |
+| 88            | Jason Aldean    | 15           | Old Boots, New Dirt | 0                |
+| 97            | Zac Brown Band  | 17           | The Foundation | 1                |
+| 75            | Elvis Presley   | 18           | Blue Hawaii (Soundtrack) | 0                |
+| 18            | Sam Smith       | 19           | In the Lonely Hour | 3                |
+| 100           | Rascal Flatts   | 20           | Cars (Soundtrack) | 1                |
+| 16            | Maroon 5        | 21           | Songs About Jane | 0                |
+| 28            | Camila Cabello  | 22           | Camila         | 1                |
+| 48            | Gwen Stefani    | 23           | The Sweet Escape | 1                |
+| 33            | Charlie Puth    | 24           | Voicenotes     | 0                |
+| 25            | Calvin Harris   | 25           | Single         | 0                |
+| 94            | Chris Stapleton | 26           | Traveller      | 1                |
+| 77            | Dolly Parton    | 27           | Jolene         | 0                |
+| 95            | Eric Church     | 28           | Chief          | 1                |
+| 92            | Miranda Lambert | 29           | Revolution     | 0                |
+| 44            | Alicia Keys     | 31           | Songs in A Minor | 3                |
+| 61            | Queen           | 32           | News of the World | 0                |
+| 68            | David Bowie     | 34           | Hunky Dory     | 1                |
+| 64            | Madonna         | 35           | Like a Prayer  | 1                |
+| 35            | The Chainsmokers | 36           | Memories...Do Not Open | 0                |
+| 49            | Fergie          | 37           | The Dutchess   | 1                |
+| 29            | Post Malone     | 38           | Stoney         | 0                |
+| 61            | Queen           | 39           | A Night at the Opera | 0                |
+| 63            | Elton John      | 40           | Honky Chateau  | 0                |
+| 3             | Ed Sheeran      | 41           | (Multiply)     | 2                |
+| 57            | NSYNC           | 42           | NSYNC          | 0                |
+| 85            | Carrie Underwood | 43           | Some Hearts    | 0                |
+| 27            | Selena Gomez    | 45           | Revival        | 0                |
+| 46            | Christina Aguilera | 46           | Christina Aguilera | 0                |
+| 85            | Carrie Underwood | 47           | Blown Away     | 0                |
+| 40            | Pitbull         | 48           | Meltdown (EP)  | 0                |
+| 46            | Christina Aguilera | 49           | Stripped       | 0                |
+| 90            | Tim McGraw      | 50           | Live Like You Were Dying | 0                |
+| 81            | George Strait   | 51           | Pure Country (Soundtrack) | 0                |
+| 73            | Barbra Streisand | 54           | A Star Is Born (Soundtrack) | 4                |
+| 74            | Frank Sinatra   | 55           | It Might as Well Be Swing | 0                |
+| 80            | Merle Haggard   | 57           | Okie from Muskogee | 0                |
+| 17            | Imagine Dragons | 58           | Evolve         | 0                |
+| 10            | Bruno Mars      | 60           | 24K Magic      | 2                |
+| 11            | Shawn Mendes    | 61           | Illuminate     | 4                |
+| 55            | One Direction   | 63           | Up All Night   | 0                |
+| 88            | Jason Aldean    | 64           | Wide Open      | 0                |
+| 80            | Merle Haggard   | 65           | I'm a Lonesome Fugitive | 0                |
+| 21            | Lorde           | 67           | Pure Heroine   | 0                |
+| 93            | Kacey Musgraves | 68           | Same Trailer Different Park | 0                |
+| 17            | Imagine Dragons | 70           | Night Visions  | 0                |
+| 1             | Taylor Swift    | 71           | 1989           | 4                |
+| 43            | Avril Lavigne   | 72           | Let Go         | 0                |
+| 42            | Usher           | 73           | Confessions    | 0                |
+| 74            | Frank Sinatra   | 74           | My Way         | 0                |
+| 47            | Kelly Clarkson  | 75           | Stronger       | 0                |
+| 35            | The Chainsmokers | 76           | Collage (EP)   | 0                |
+| 77            | Dolly Parton    | 77           | 9 to 5 and Odd Jobs | 0                |
+| 37            | Lana Del Rey    | 78           | Born to Die    | 0                |
+| 70            | Janet Jackson   | 79           | Janet Jackson's Rhythm Nation 1814 | 0                |
+| 84            | Taylor Swift    | 80           | Taylor Swift   | 0                |
+| 36            | P!nk            | 81           | Greatest Hits... So Far!!! | 0                |
+| 78            | Willie Nelson   | 82           | Red Headed Stranger | 0                |
+| 45            | Britney Spears  | 83           | In the Zone    | 0                |
+| 76            | Johnny Cash     | 84           | Ring of Fire: The Best of Johnny Cash | 0                |
+| 92            | Miranda Lambert | 85           | Wildcard       | 0                |
+| 8             | Katy Perry      | 86           | One of the Boys | 2                |
+| 87            | Luke Bryan      | 87           | Crash My Party | 0                |
+| 25            | Calvin Harris   | 88           | Motion         | 0                |
+| 65            | Whitney Houston | 89           | The Bodyguard (Soundtrack) | 0                |
+| 35            | The Chainsmokers | 90           | Bouquet (EP)   | 0                |
+| 39            | Shakira         | 91           | Laundry Service | 1                |
+| 65            | Whitney Houston | 92           | Whitney Houston | 0                |
+| 24            | Dua Lipa        | 95           | Future Nostalgia | 2                |
+| 41            | Jennifer Lopez  | 96           | On the 6       | 0                |
+| 63            | Elton John      | 97           | The Lockdown Sessions | 0                |
+| 51            | Nelly           | 99           | Country Grammar | 0                |
+| 22            | Miley Cyrus     | 100          | The Time of Our Lives (EP) | 0                |
+| 9             | Rihanna         | 101          | Music of the Sun | 2                |
+| 98            | Lady A          | 102          | Need You Now   | 0                |
+| 66            | Prince          | 103          | Purple Rain    | 0                |
+| 59            | Spice Girls     | 104          | Spiceworld     | 0                |
+| 92            | Miranda Lambert | 105          | Kerosene       | 0                |
+| 93            | Kacey Musgraves | 106          | Golden Hour    | 0                |
+| 42            | Usher           | 108          | Versus (EP)    | 0                |
+| 67            | Bob Dylan       | 109          | Highway 61 Revisited | 0                |
+| 63            | Elton John      | 110          | Madman Across the Water | 0                |
+| 29            | Post Malone     | 111          | Hollywood's Bleeding | 0                |
+| 45            | Britney Spears  | 112          | ...Baby One More Time | 0                |
+| 37            | Lana Del Rey    | 113          | The Great Gatsby (Soundtrack) | 0                |
+| 98            | Lady A          | 114          | Lady Antebellum | 0                |
+| 80            | Merle Haggard   | 115          | Mama Tried     | 0                |
+| 38            | Eminem          | 116          | The Marshall Mathers LP | 0                |
+| 96            | Florida Georgia Line | 117          | Dig Your Roots | 0                |
+| 15            | Coldplay        | 118          | Parachutes     | 0                |
+| 25            | Calvin Harris   | 119          | 18 Months      | 0                |
+| 89            | Keith Urban     | 120          | Ripcord        | 0                |
+| 31            | Jason Derulo    | 121          | Single         | 0                |
+| 40            | Pitbull         | 123          | Rebelution     | 0                |
+| 52            | Lil Nas X       | 124          | Montero        | 1                |
+| 20            | Kanye West      | 126          | My Beautiful Dark Twisted Fantasy | 0                |
+| 81            | George Strait   | 127          | Always Never the Same | 0                |
+| 20            | Kanye West      | 128          | Late Registration | 0                |
+| 62            | Michael Jackson | 129          | Bad            | 0                |
+| 54            | Demi Lovato     | 130          | Demi           | 0                |
+| 5             | Drake           | 131          | Views          | 8                |
+| 82            | Garth Brooks    | 132          | No Fences      | 0                |
+| 7             | Justin Bieber   | 135          | Purpose        | 2                |
+| 71            | Tina Turner     | 136          | Foreign Affair | 0                |
+| 19            | Sia             | 137          | This Is Acting | 0                |
+| 36            | P!nk            | 138          | The Truth About Love | 0                |
+| 50            | Justin Timberlake | 139          | FutureSex/LoveSounds | 0                |
+| 22            | Miley Cyrus     | 140          | Bangerz        | 0                |
+| 19            | Sia             | 142          | 1000 Forms of Fear | 0                |
+| 33            | Charlie Puth    | 145          | Furious 7 (Soundtrack) | 0                |
+| 8             | Katy Perry      | 146          | Teenage Dream  | 2                |
+| 67            | Bob Dylan       | 147          | The Times They Are a-Changin' | 0                |
+| 26            | Zayn            | 148          | Mind of Mine   | 0                |
+| 31            | Jason Derulo    | 149          | Jason Derulo   | 0                |
+| 55            | One Direction   | 150          | Midnight Memories | 0                |
+| 30            | Cardi B         | 151          | Single         | 0                |
+| 70            | Janet Jackson   | 153          | Control        | 0                |
+| 34            | Marshmello      | 154          | Single         | 0                |
+| 50            | Justin Timberlake | 155          | The 20/20 Experience | 0                |
+| 91            | Faith Hill      | 156          | Take Me as I Am | 0                |
+| 33            | Charlie Puth    | 157          | Nine Track Mind | 0                |
+| 36            | P!nk            | 158          | M!ssundaztood  | 0                |
+| 90            | Tim McGraw      | 159          | All I Want     | 0                |
+| 45            | Britney Spears  | 160          | Blackout       | 0                |
+| 65            | Whitney Houston | 161          | Whitney        | 0                |
+| 57            | NSYNC           | 162          | No Strings Attached | 0                |
+| 58            | Destiny's Child | 163          | The Writing's on the Wall | 0                |
+| 29            | Post Malone     | 165          | Spider-Man: Into the Spider-Verse (Soundtrack) | 0                |
+| 15            | Coldplay        | 166          | Viva La Vida or Death and All His Friends | 0                |
+| 47            | Kelly Clarkson  | 167          | Breakaway      | 0                |
+| 78            | Willie Nelson   | 168          | Honeysuckle Rose (Soundtrack) | 0                |
+| 78            | Willie Nelson   | 169          | Always On My Mind | 0                |
+| 9             | Rihanna         | 170          | Good Girl Gone Bad | 2                |
+| 51            | Nelly           | 171          | Nellyville     | 0                |
+| 54            | Demi Lovato     | 172          | Unbroken       | 0                |
+| 38            | Eminem          | 173          | 8 Mile (Soundtrack) | 0                |
+| 96            | Florida Georgia Line | 174          | Here's to the Good Times | 0                |
+| 32            | Halsey          | 175          | Collage (EP)   | 0                |
+| 79            | Kenny Rogers    | 176          | Eyes That See in the Dark | 0                |
+| 91            | Faith Hill      | 177          | Breathe        | 0                |
+| 26            | Zayn            | 178          | Fifty Shades Darker (Soundtrack) | 0                |
+| 27            | Selena Gomez    | 179          | Rare           | 0                |
+| 16            | Maroon 5        | 180          | Hands All Over (Re-release) | 0                |
+| 87            | Luke Bryan      | 181          | Tailgates & Tanlines | 0                |
+| 84            | Taylor Swift    | 182          | Fearless       | 0                |
+| 90            | Tim McGraw      | 183          | Damn Country Music | 0                |
+| 23            | John Legend     | 184          | Get Lifted     | 0                |
+| 88            | Jason Aldean    | 185          | My Kinda Party | 0                |
+| 89            | Keith Urban     | 187          | Golden Road    | 0                |
+| 99            | Little Big Town | 188          | The Breaker    | 0                |
+| 79            | Kenny Rogers    | 189          | Kenny Rogers' Greatest Hits | 0                |
+| 41            | Jennifer Lopez  | 190          | Love?          | 0                |
+| 53            | Meghan Trainor  | 191          | Title          | 0                |
+| 27            | Selena Gomez    | 192          | Stars Dance    | 0                |
+| 98            | Lady A          | 193          | Own the Night  | 0                |
+| 61            | Queen           | 196          | The Game       | 0                |
+| 99            | Little Big Town | 197          | Pain Killer    | 0                |
+| 72            | Cher            | 198          | Believe        | 4                |
+| 6             | Lady Gaga       | 199          | The Fame       | 6                |
+| 60            | The Beatles     | 201          | Help!          | 0                |
+| 59            | Spice Girls     | 202          | Spice          | 0                |
+| 81            | George Strait   | 203          | Strait from the Heart | 0                |
+| 60            | The Beatles     | 204          | Single         | 0                |
+| 74            | Frank Sinatra   | 205          | Trilogy: Past, Present & Future | 0                |
+| 70            | Janet Jackson   | 207          | janet.         | 0                |
+| 56            | Backstreet Boys | 208          | Millennium     | 0                |
+| 8             | Katy Perry      | 209          | Prism          | 2                |
+| 7             | Justin Bieber   | 210          | Justice        | 2                |
+| 32            | Halsey          | 211          | Single         | 0                |
+| 58            | Destiny's Child | 212          | Survivor       | 0                |
+| 2             | Beyonce         | 213          | Lemonade       | 3                |
+| 26            | Zayn            | 214          | Single         | 0                |
+| 82            | Garth Brooks    | 215          | In Pieces      | 0                |
+| 89            | Keith Urban     | 216          | Be Here        | 0                |
+| 83            | Shania Twain    | 217          | Come On Over   | 0                |
+| 66            | Prince          | 218          | Parade         | 0                |
+| 2             | Beyonce         | 219          | I Am... Sasha Fierce | 3                |
+| 76            | Johnny Cash     | 220          | American IV: The Man Comes Around | 0                |
+| 75            | Elvis Presley   | 221          | Single         | 0                |
+| 9             | Rihanna         | 224          | Talk That Talk | 2                |
+| 14            | Nicki Minaj     | 226          | Pink Friday    | 2                |
+| 32            | Halsey          | 227          | Manic          | 0                |
+| 99            | Little Big Town | 228          | Tornado        | 0                |
+| 13            | The Weeknd      | 229          | After Hours    | 4                |
+| 40            | Pitbull         | 231          | Planet Pit     | 0                |
+| 56            | Backstreet Boys | 232          | Backstreet's Back | 0                |
+| 60            | The Beatles     | 234          | Let It Be      | 0                |
+| 79            | Kenny Rogers    | 235          | The Gambler    | 0                |
+| 34            | Marshmello      | 236          | Single         | 0                |
+| 71            | Tina Turner     | 237          | Private Dancer | 0                |
+| 12            | Adele           | 238          | 21             | 5                |
+| 30            | Cardi B         | 239          | Invasion of Privacy | 0                |
+| 91            | Faith Hill      | 241          | Faith          | 0                |
+| 23            | John Legend     | 242          | Selma (Soundtrack) | 0                |
+| 75            | Elvis Presley   | 243          | Single         | 0                |
+| 38            | Eminem          | 244          | Recovery       | 0                |
+| 20            | Kanye West      | 245          | Graduation     | 0                |
+| 21            | Lorde           | 246          | Melodrama      | 0                |
+| 10            | Bruno Mars      | 247          | Uptown Special (Mark Ronson Album) | 2                |
+| 50            | Justin Timberlake | 250          | Justified      | 0                |
+| 15            | Coldplay        | 251          | X&Y            | 0                |
+| 31            | Jason Derulo    | 252          | Tattoos/Talk Dirty | 0                |
+| 62            | Michael Jackson | 253          | Thriller       | 0                |
++ ------------- + --------------- + ------------ + -------------- + ---------------- +
+211 rows
+```
 
 This query is useful for artists and producers to see which album an artist produced was the most popular and critically acclaimed. It can help the artist learn what types of music their fans like and what type of music to make in the future.
 
