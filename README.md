@@ -2153,4 +2153,5 @@ ORDER BY times_attended DESC
 This query is useful because Taylor Swift is known for having one of the most dedicated fan bases of any artist. Knowing who her biggest fans are and who is most likely to attend her concerts is very useful for her when she releases new music or goes on tour. Her managers and producers can target these fans since they are most likely to make a purchase.
 
 ## Database Information
+Name of the database: `ns_F25MIST4610_15058_Group6`
 
