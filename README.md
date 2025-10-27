@@ -123,7 +123,7 @@ This query is useful because it highlights experienced and established artists i
 
 
 Query 6
-Return every venue with its name and the number of employees who work there, including venues with zero employees, sorted from most staffed to least staffed
+Returns every venue with its name and the number of employees who work there, including venues with zero employees, sorted from most staffed to least staffed
 SELECT Venue.venueID, Venue.venueName, COUNT(Employee.employeeID) AS employee_count
 FROM Venue
 LEFT JOIN Employee ON Employee.venueID = Venue.venueID
