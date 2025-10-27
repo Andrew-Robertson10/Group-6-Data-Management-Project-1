@@ -1593,14 +1593,81 @@ This query is useful for artists to use when planning concerts. They may want to
 
 Query 5
 
-Lists artists who have released at least 3 albums.
-SELECT Artist.artistID, artistName,
+```
+Execute:
+> SELECT Artist.artistID, artistName,
  COUNT(albumID) AS "Album count"
 FROM Artist
 JOIN Album ON Artist.artistID = Album.artistID
 GROUP BY Artist.artistID, artistName
-HAVING COUNT(albumID) > 3
-ORDER BY COUNT(albumID) DESC;
+HAVING COUNT(albumID) > 2
+ORDER BY COUNT(albumID) DESC
+
++ ------------- + --------------- + ---------------- +
+| artistID      | artistName      | Album count      |
++ ------------- + --------------- + ---------------- +
+| 76            | Johnny Cash     | 3                |
+| 54            | Demi Lovato     | 3                |
+| 60            | The Beatles     | 3                |
+| 61            | Queen           | 3                |
+| 63            | Elton John      | 3                |
+| 64            | Madonna         | 3                |
+| 65            | Whitney Houston | 3                |
+| 67            | Bob Dylan       | 3                |
+| 68            | David Bowie     | 3                |
+| 69            | Stevie Wonder   | 3                |
+| 70            | Janet Jackson   | 3                |
+| 72            | Cher            | 3                |
+| 73            | Barbra Streisand | 3                |
+| 74            | Frank Sinatra   | 3                |
+| 75            | Elvis Presley   | 3                |
+| 50            | Justin Timberlake | 3                |
+| 78            | Willie Nelson   | 3                |
+| 79            | Kenny Rogers    | 3                |
+| 80            | Merle Haggard   | 3                |
+| 81            | George Strait   | 3                |
+| 86            | Blake Shelton   | 3                |
+| 88            | Jason Aldean    | 3                |
+| 89            | Keith Urban     | 3                |
+| 90            | Tim McGraw      | 3                |
+| 91            | Faith Hill      | 3                |
+| 92            | Miranda Lambert | 3                |
+| 98            | Lady A          | 3                |
+| 99            | Little Big Town | 3                |
+| 100           | Rascal Flatts   | 3                |
+| 27            | Selena Gomez    | 3                |
+| 2             | Beyonce         | 3                |
+| 6             | Lady Gaga       | 3                |
+| 8             | Katy Perry      | 3                |
+| 9             | Rihanna         | 3                |
+| 10            | Bruno Mars      | 3                |
+| 12            | Adele           | 3                |
+| 14            | Nicki Minaj     | 3                |
+| 15            | Coldplay        | 3                |
+| 18            | Sam Smith       | 3                |
+| 20            | Kanye West      | 3                |
+| 22            | Miley Cyrus     | 3                |
+| 23            | John Legend     | 3                |
+| 25            | Calvin Harris   | 3                |
+| 26            | Zayn            | 3                |
+| 1             | Taylor Swift    | 3                |
+| 28            | Camila Cabello  | 3                |
+| 29            | Post Malone     | 3                |
+| 31            | Jason Derulo    | 3                |
+| 32            | Halsey          | 3                |
+| 33            | Charlie Puth    | 3                |
+| 34            | Marshmello      | 3                |
+| 35            | The Chainsmokers | 3                |
+| 36            | P!nk            | 3                |
+| 38            | Eminem          | 3                |
+| 39            | Shakira         | 3                |
+| 40            | Pitbull         | 3                |
+| 44            | Alicia Keys     | 3                |
+| 45            | Britney Spears  | 3                |
++ ------------- + --------------- + ---------------- +
+58 rows
+```
+
 
 This query is useful because it highlights experienced and established artists in the industry. A manager could use this information to seek out and invest in artists who have the potential to expand their brand through collaborations with other artists, concerts, and product launches.
 
@@ -1608,41 +1675,223 @@ This query is useful because it highlights experienced and established artists i
 Query 6
 
 Returns every venue with its name and the number of employees who work there, including venues with zero employees, sorted from most staffed to least staffed
-SELECT Venue.venueID, Venue.venueName, COUNT(Employee.employeeID) AS employee_count
+```
+Execute:
+> SELECT Venue.venueID, Venue.venueName, COUNT(Employee.employeeID) AS employee_count
 FROM Venue
 LEFT JOIN Employee ON Employee.venueID = Venue.venueID
 GROUP BY Venue.venueID, Venue.venueName
-ORDER BY employee_count DESC;
+ORDER BY employee_count DESC
 
-Provides a quick staffing snapshot per location so managers can identify overstaffed or understaffed venues, allocate or reassign personnel, plan hiring, and prioritize operational support where headcount is low.
++ ------------ + -------------- + ------------------- +
+| venueID      | venueName      | employee_count      |
++ ------------ + -------------- + ------------------- +
+| 4            | Songbird Stadium | 8                   |
+| 41           | Rock Dome      | 8                   |
+| 77           | Groove Garden  | 8                   |
+| 20           | Riff Ridge     | 8                   |
+| 19           | Groove Garden  | 8                   |
+| 1            | Rhythm Retreat | 7                   |
+| 47           | Live Lounge    | 7                   |
+| 58           | Chorus Club    | 7                   |
+| 79           | Acoustic Alley | 7                   |
+| 83           | Acoustic Arena | 7                   |
+| 18           | Tune Terrace   | 7                   |
+| 86           | Concert Pavilion | 7                   |
+| 12           | Harmony Hall   | 7                   |
+| 14           | The Arena      | 6                   |
+| 5            | Rhythm Retreat | 6                   |
+| 53           | Theater Center | 6                   |
+| 6            | Vocal Venue    | 6                   |
+| 81           | Serenade Square | 6                   |
+| 85           | Symphony Square | 6                   |
+| 9            | Theater Center | 6                   |
+| 87           | Acoustic Alley | 6                   |
+| 61           | Beat Box       | 5                   |
+| 64           | Cadence Center | 5                   |
+| 36           | Cadence Center | 5                   |
+| 62           | Acoustic Arena | 5                   |
+| 3            | Amphitheater Gardens | 5                   |
+| 33           | Performance Hall | 5                   |
+| 32           | Rhythm Retreat | 5                   |
+| 30           | Live Lounge    | 5                   |
+| 28           | Amphitheater Gardens | 5                   |
+| 76           | Pulse Pavilion | 5                   |
+| 16           | Harmony Hall   | 5                   |
+| 7            | Melody Mansion | 5                   |
+| 90           | Live Lounge    | 5                   |
+| 40           | Beat Box       | 5                   |
+| 51           | Melody Mall    | 5                   |
+| 50           | Symphony Square | 4                   |
+| 55           | Tune Terrace   | 4                   |
+| 59           | Vocal Venue    | 4                   |
+| 2            | Pulse Pavilion | 4                   |
+| 89           | The Arena      | 4                   |
+| 63           | Concert Pavilion | 4                   |
+| 65           | Acoustic Arena | 4                   |
+| 70           | The Arena      | 4                   |
+| 71           | Performance Hall | 4                   |
+| 72           | Acoustic Alley | 4                   |
+| 82           | Tune Terrace   | 4                   |
+| 99           | Rhythm Ridge   | 4                   |
+| 94           | Soundstage Plaza | 4                   |
+| 21           | Rhythm Ridge   | 4                   |
+| 34           | Pulse Pavilion | 4                   |
+| 29           | Live Lounge    | 4                   |
+| 49           | Symphony Square | 4                   |
+| 35           | Symphony Square | 4                   |
+| 37           | Jam Junction   | 4                   |
+| 38           | Jam Junction   | 4                   |
+| 43           | Stadium Square | 4                   |
+| 44           | Chorus Club    | 4                   |
+| 15           | Harmonize Haven | 4                   |
+| 10           | Tune Terrace   | 4                   |
+| 48           | Soundstage Square | 4                   |
+| 75           | Stadium Square | 3                   |
+| 80           | Melody Mansion | 3                   |
+| 78           | Symphony Square | 3                   |
+| 91           | Rock Dome      | 3                   |
+| 92           | The Arena      | 3                   |
+| 93           | Vocal Venue    | 3                   |
+| 26           | Symphony Square | 3                   |
+| 74           | Acoustic Arena | 3                   |
+| 97           | Live Lounge    | 3                   |
+| 69           | Tune Terrace   | 3                   |
+| 46           | Beat Box       | 3                   |
+| 56           | Serenade Square | 3                   |
+| 100          | Harmony Hall   | 2                   |
+| 31           | Concert Cove   | 2                   |
+| 8            | Harmonize Hall | 2                   |
+| 96           | Tune Terrace   | 2                   |
+| 45           | Harmonize Haven | 2                   |
+| 13           | The Arena      | 2                   |
+| 17           | Beat Box       | 2                   |
+| 84           | Harmonize Hall | 2                   |
+| 22           | Jam Junction   | 2                   |
+| 66           | Rhythm Retreat | 2                   |
+| 73           | Concert Cove   | 2                   |
+| 68           | Concert Cove   | 2                   |
+| 67           | The Arena      | 2                   |
+| 27           | Harmony House  | 2                   |
+| 23           | Cadence Club   | 2                   |
+| 25           | Live Lounge    | 2                   |
+| 42           | Soundstage Square | 2                   |
+| 24           | Concert Pavilion | 2                   |
+| 11           | Harmony Hall   | 1                   |
+| 39           | Tune Terrace   | 1                   |
+| 88           | Chorus Club    | 1                   |
+| 54           | Melodic Meadow | 1                   |
+| 57           | Echo Emporium  | 1                   |
+| 95           | Jam Junction   | 1                   |
+| 52           | The Arena      | 1                   |
+| 98           | Serenade Square | 1                   |
+| 60           | Vocal Venue    | 1                   |
++ ------------ + -------------- + ------------------- +
+100 rows
+```
+
+This query is useful because it provides a quick staffing snapshot per location so managers can identify overstaffed or understaffed venues, allocate or reassign personnel, plan hiring, and prioritize operational support where headcount is low.
 
 Query 7
 
 Find songs with the word "love" in the title and displays the song's ID, the name of the song, the ID of the artist who created it, the artist's name, and the album the song is in.
-SELECT
-  songID,
-  songName,
-  Song.artistID,
-  artistName
-  albumID
+
+```
+Execute:
+> SELECT songID, songName, Song.artistID, artistName albumID
 FROM Song
 JOIN Artist ON Song.artistID = Artist.artistID
-WHERE songName REGEXP 'love|Love';
+WHERE songName REGEXP 'love|Love'
+
++ ----------- + ------------- + ------------- + ------------ +
+| songID      | songName      | artistID      | albumID      |
++ ----------- + ------------- + ------------- + ------------ +
+| 7           | Greatest Love of All | 65            | Whitney Houston |
+| 22          | What's Love Got to Do with It | 71            | Tina Turner  |
+| 31          | Woman in Love | 73            | Barbra Streisand |
+| 34          | DJ Got Us Fallin' In Love (feat. Pitbull) | 42            | Usher        |
+| 62          | She Will Be Loved | 16            | Maroon 5     |
+| 104         | Savage Love (Laxed a Siren Beat) | 31            | Jason Derulo |
+| 106         | That's the Way Love Goes | 70            | Janet Jackson |
+| 114         | Can't Help Falling in Love | 75            | Elvis Presley |
+| 119         | Crazy in Love | 2             | Beyonce      |
+| 149         | Love The Way You Lie (feat. Rihanna) | 38            | Eminem       |
+| 162         | Lose You to Love Me | 27            | Selena Gomez |
+| 172         | I Like It,  I Love It | 90            | Tim McGraw   |
+| 210         | Isn't She Lovely | 69            | Stevie Wonder |
+| 218         | I Just Called to Say I Love You | 69            | Stevie Wonder |
+| 221         | We Found Love | 9             | Rihanna      |
+| 230         | Love Story    | 84            | Taylor Swift |
+| 238         | I Will Always Love You | 65            | Whitney Houston |
+| 242         | As Long as You Love Me | 56            | Backstreet Boys |
+| 252         | This Love     | 16            | Maroon 5     |
+| 267         | I Will Always Love You | 77            | Dolly Parton |
+| 268         | I Wanna Dance with Somebody (Who Loves Me) | 65            | Whitney Houston |
+| 286         | If You Had My Love | 41            | Jennifer Lopez |
++ ----------- + ------------- + ------------- + ------------ +
+22 rows
+```
 
 This information is useful because love is a common theme among the most popular songs across multiple genres. A producer may want to find songs that are written about love to study trends in music listeners, or if they are creating promotional material for certain holidays like Valentine's Day.
 
 Query 8
 
 Finds venue employees who supervise more than 3 people. Displays the supervisor's ID, name, and the number of direct reports they have.
-SELECT
-  sup.employeeID AS supervisorID,
-  sup.employeeName AS supervisorName,
+
+```
+Execute:
+> SELECT
+  sup.employeeID AS superviserID,
+  sup.employeeName AS superviserName,
   COUNT(sub.employeeID) AS direct_reports
 FROM Employee sup
-JOIN Employee sub ON sub.supervisorID = sup.employeeID
+JOIN Employee sub ON sub.superviserID = sup.employeeID
 GROUP BY sup.employeeID, sup.employeeName
 HAVING COUNT(sub.employeeID) > 3
-ORDER BY direct_reports DESC;
+ORDER BY direct_reports DESC
+
++ ----------------- + ------------------- + ------------------- +
+| superviserID      | superviserName      | direct_reports      |
++ ----------------- + ------------------- + ------------------- +
+| 7                 | Pamelina Mallinar   | 7                   |
+| 52                | Coralyn Goodlife    | 7                   |
+| 40                | Yulma Battram       | 7                   |
+| 20                | Benita McWhannel    | 7                   |
+| 25                | Amalita Johnikin    | 7                   |
+| 3                 | Libbie Ipsly        | 6                   |
+| 130               | Darryl Hulle        | 6                   |
+| 80                | Carmina Ellicombe   | 6                   |
+| 37                | Sherry Bedrosian    | 6                   |
+| 30                | Tom Barniss         | 6                   |
+| 27                | Basilius Seares     | 6                   |
+| 9                 | Marti Kolushev      | 6                   |
+| 12                | Margy Nand          | 6                   |
+| 6                 | Hieronymus Petts    | 5                   |
+| 72                | Nickolas Kane       | 5                   |
+| 24                | Lanni Delaprelle    | 5                   |
+| 44                | Lisle Holby         | 5                   |
+| 123               | Tate Cabbell        | 5                   |
+| 15                | Jean Coopey         | 5                   |
+| 19                | Hyacinth Shillan    | 5                   |
+| 29                | Theodosia Matyja    | 5                   |
+| 125               | Danell Jeanesson    | 4                   |
+| 1                 | Adina Blackbrough   | 4                   |
+| 175               | Lizabeth Winters    | 4                   |
+| 119               | Cherilyn Beake      | 4                   |
+| 91                | Honoria Falconbridge | 4                   |
+| 218               | Chloette Morten     | 4                   |
+| 46                | Pam Champley        | 4                   |
+| 90                | Felicity Randlesome | 4                   |
+| 62                | Lannie Maior        | 4                   |
+| 45                | Shaylynn Kennaird   | 4                   |
+| 42                | Shela Keme          | 4                   |
+| 36                | Yankee Handrek      | 4                   |
+| 35                | Thom Roomes         | 4                   |
+| 31                | Munroe Hinks        | 4                   |
+| 21                | Colan Abry          | 4                   |
++ ----------------- + ------------------- + ------------------- +
+36 rows
+```
 
 This query is useful for organizational and budgetary insights in the event planning industry. A venue's higher management can look at this data to see which employees may be stretched too thin in their job duties. This data can also be used to streamline accountability among large teams of employees within different divisions.
 
