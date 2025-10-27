@@ -1472,11 +1472,121 @@ This query is useful for artists and producers to see which album an artist prod
 Query 4
 
 Lists the ID and name of each venue and orders them by the number of concerts held at the venue. The most popular venues with the most concerts are listed first, while venues with the least number of concerts are listed last.
-SELECT Venue.venueID, Venue.venueName, Venue.city, COUNT(*) AS "Number of Concerts"
+
+```
+Execute:
+> SELECT Venue.venueID, Venue.venueName, Venue.city, COUNT(*) AS "Number of Concerts"
 FROM Concert
-JOIN Venue ON venueID = venueID
-GROUP BY venueID, venueName, city
-ORDER BY COUNT(*) DESC;
+JOIN Venue ON Concert.venueID = Venue.venueID
+GROUP BY Venue.venueID, Venue.venueName, city
+ORDER BY COUNT(*) DESC
+
++ ------------ + -------------- + --------- + ----------------------- +
+| venueID      | venueName      | city      | Number of Concerts      |
++ ------------ + -------------- + --------- + ----------------------- +
+| 21           | Rhythm Ridge   | Las Palmas | 4                       |
+| 20           | Riff Ridge     | Miami     | 4                       |
+| 19           | Groove Garden  | Grand Rapids | 4                       |
+| 33           | Performance Hall | Daytona Beach | 4                       |
+| 31           | Concert Cove   | Oklahoma City | 4                       |
+| 27           | Harmony House  | Aurora    | 4                       |
+| 62           | Acoustic Arena | Guadalupe | 3                       |
+| 22           | Jam Junction   | Buenavista | 3                       |
+| 23           | Cadence Club   | Lleida    | 3                       |
+| 24           | Concert Pavilion | Richmond  | 3                       |
+| 25           | Live Lounge    | Santiago De Compostela | 3                       |
+| 26           | Symphony Square | Seattle   | 3                       |
+| 28           | Amphitheater Gardens | Hicksville | 3                       |
+| 2            | Pulse Pavilion | Peoria    | 3                       |
+| 30           | Live Lounge    | Santa Rosa | 3                       |
+| 36           | Cadence Center | Emiliano Zapata | 3                       |
+| 57           | Echo Emporium  | Charleston | 3                       |
+| 56           | Serenade Square | Magisterial | 3                       |
+| 50           | Symphony Square | Birmingham | 3                       |
+| 42           | Soundstage Square | Jose Maria Morelos | 3                       |
+| 44           | Chorus Club    | Linton    | 3                       |
+| 17           | Beat Box       | Providence | 3                       |
+| 72           | Acoustic Alley | Knoxville | 3                       |
+| 3            | Amphitheater Gardens | Solidaridad | 3                       |
+| 4            | Songbird Stadium | Naples    | 3                       |
+| 1            | Rhythm Retreat | Saint Louis | 3                       |
+| 9            | Theater Center | Wilmington | 3                       |
+| 8            | Harmonize Hall | Fresno    | 3                       |
+| 7            | Melody Mansion | Upton     | 3                       |
+| 47           | Live Lounge    | Naples    | 2                       |
+| 100          | Harmony Hall   | Huntington | 2                       |
+| 48           | Soundstage Square | Lazaro Cardenas | 2                       |
+| 54           | Melodic Meadow | Leeds     | 2                       |
+| 99           | Rhythm Ridge   | Chapultepec | 2                       |
+| 58           | Chorus Club    | Charlotte | 2                       |
+| 59           | Vocal Venue    | Los Angeles | 2                       |
+| 60           | Vocal Venue    | Dallas    | 2                       |
+| 61           | Beat Box       | San Agustin | 2                       |
+| 98           | Serenade Square | La Esperanza | 2                       |
+| 97           | Live Lounge    | Benito Juarez | 2                       |
+| 96           | Tune Terrace   | Los Angeles | 2                       |
+| 95           | Jam Junction   | Thorpe    | 2                       |
+| 94           | Soundstage Plaza | Chicago   | 2                       |
+| 91           | Rock Dome      | Horton    | 2                       |
+| 75           | Stadium Square | Benito Juarez | 2                       |
+| 45           | Harmonize Haven | Tampa     | 2                       |
+| 5            | Rhythm Retreat | Chesapeake | 2                       |
+| 6            | Vocal Venue    | San Isidro | 2                       |
+| 10           | Tune Terrace   | Eaton     | 2                       |
+| 11           | Harmony Hall   | El Paso   | 2                       |
+| 12           | Harmony Hall   | Salinas   | 2                       |
+| 13           | The Arena      | Tucson    | 2                       |
+| 14           | The Arena      | Phoenix   | 2                       |
+| 15           | Harmonize Haven | El Rosario | 2                       |
+| 16           | Harmony Hall   | La Esperanza | 2                       |
+| 18           | Tune Terrace   | El Porvenir | 2                       |
+| 29           | Live Lounge    | Birmingham | 2                       |
+| 34           | Pulse Pavilion | San Miguel | 2                       |
+| 37           | Jam Junction   | Lincoln   | 2                       |
+| 46           | Beat Box       | Vicente Guerrero | 2                       |
+| 43           | Stadium Square | New York City | 2                       |
+| 41           | Rock Dome      | El Paso   | 2                       |
+| 40           | Beat Box       | Anaheim   | 2                       |
+| 39           | Tune Terrace   | Peoria    | 2                       |
+| 38           | Jam Junction   | Washington | 2                       |
+| 92           | The Arena      | Newton    | 1                       |
+| 84           | Harmonize Hall | Las Americas | 1                       |
+| 85           | Symphony Square | Los Pinos | 1                       |
+| 86           | Concert Pavilion | Tierra y Libertad | 1                       |
+| 87           | Acoustic Alley | Harrisburg | 1                       |
+| 88           | Chorus Club    | Fort Lauderdale | 1                       |
+| 89           | The Arena      | Phoenix   | 1                       |
+| 90           | Live Lounge    | La Aurora | 1                       |
+| 63           | Concert Pavilion | Sacramento | 1                       |
+| 83           | Acoustic Arena | Teruel    | 1                       |
+| 93           | Vocal Venue    | Houston   | 1                       |
+| 53           | Theater Center | Jardin    | 1                       |
+| 52           | The Arena      | Palmas De Gran Canaria, Las | 1                       |
+| 51           | Melody Mall    | Magdaleno Aguilar | 1                       |
+| 49           | Symphony Square | Alexandria | 1                       |
+| 32           | Rhythm Retreat | Asheville | 1                       |
+| 35           | Symphony Square | Louisville | 1                       |
+| 74           | Acoustic Arena | Vancouver | 1                       |
+| 66           | Rhythm Retreat | Anchorage | 1                       |
+| 67           | The Arena      | Jacksonville | 1                       |
+| 68           | Concert Cove   | Newport News | 1                       |
+| 69           | Tune Terrace   | Birmingham | 1                       |
+| 70           | The Arena      | Emiliano Zapata | 1                       |
+| 71           | Performance Hall | San Diego | 1                       |
+| 64           | Cadence Center | Bronx     | 1                       |
+| 73           | Concert Cove   | Lindavista | 1                       |
+| 65           | Acoustic Arena | Magisterial | 1                       |
+| 55           | Tune Terrace   | Cincinnati | 1                       |
+| 76           | Pulse Pavilion | Lawrenceville | 1                       |
+| 77           | Groove Garden  | Greenville | 1                       |
+| 78           | Symphony Square | Maple Plain | 1                       |
+| 79           | Acoustic Alley | Las Americas | 1                       |
+| 80           | Melody Mansion | Louisville | 1                       |
+| 81           | Serenade Square | Colorado Springs | 1                       |
+| 82           | Tune Terrace   | San Agustin | 1                       |
++ ------------ + -------------- + --------- + ----------------------- +
+100 rows
+```
 
 This query is useful for artists to use when planning concerts. They may want to look for venues in cities that they are personally unfamiliar with and use the most popular venue as a starting point for their research. Venues that have hosted many concerts have likely gained their status for a reason, and they may be more suitable than other venues for concerts.
 
