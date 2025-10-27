@@ -1802,37 +1802,37 @@ Find songs with the word "love" in the title and displays the song's ID, the nam
 
 ```
 Execute:
-> SELECT songID, songName, Song.artistID, artistName albumID
+> SELECT songID, songName, Song.artistID, artistName, albumID
 FROM Song
 JOIN Artist ON Song.artistID = Artist.artistID
 WHERE songName REGEXP 'love|Love'
 
-+ ----------- + ------------- + ------------- + ------------ +
-| songID      | songName      | artistID      | albumID      |
-+ ----------- + ------------- + ------------- + ------------ +
-| 7           | Greatest Love of All | 65            | Whitney Houston |
-| 22          | What's Love Got to Do with It | 71            | Tina Turner  |
-| 31          | Woman in Love | 73            | Barbra Streisand |
-| 34          | DJ Got Us Fallin' In Love (feat. Pitbull) | 42            | Usher        |
-| 62          | She Will Be Loved | 16            | Maroon 5     |
-| 104         | Savage Love (Laxed a Siren Beat) | 31            | Jason Derulo |
-| 106         | That's the Way Love Goes | 70            | Janet Jackson |
-| 114         | Can't Help Falling in Love | 75            | Elvis Presley |
-| 119         | Crazy in Love | 2             | Beyonce      |
-| 149         | Love The Way You Lie (feat. Rihanna) | 38            | Eminem       |
-| 162         | Lose You to Love Me | 27            | Selena Gomez |
-| 172         | I Like It,  I Love It | 90            | Tim McGraw   |
-| 210         | Isn't She Lovely | 69            | Stevie Wonder |
-| 218         | I Just Called to Say I Love You | 69            | Stevie Wonder |
-| 221         | We Found Love | 9             | Rihanna      |
-| 230         | Love Story    | 84            | Taylor Swift |
-| 238         | I Will Always Love You | 65            | Whitney Houston |
-| 242         | As Long as You Love Me | 56            | Backstreet Boys |
-| 252         | This Love     | 16            | Maroon 5     |
-| 267         | I Will Always Love You | 77            | Dolly Parton |
-| 268         | I Wanna Dance with Somebody (Who Loves Me) | 65            | Whitney Houston |
-| 286         | If You Had My Love | 41            | Jennifer Lopez |
-+ ----------- + ------------- + ------------- + ------------ +
++ ----------- + ------------- + ------------- + --------------- + ------------ +
+| songID      | songName      | artistID      | artistName      | albumID      |
++ ----------- + ------------- + ------------- + --------------- + ------------ +
+| 7           | Greatest Love of All | 65            | Whitney Houston | 92           |
+| 22          | What's Love Got to Do with It | 71            | Tina Turner     | 237          |
+| 31          | Woman in Love | 73            | Barbra Streisand | 1            |
+| 34          | DJ Got Us Fallin' In Love (feat. Pitbull) | 42            | Usher           | 108          |
+| 62          | She Will Be Loved | 16            | Maroon 5        | 21           |
+| 104         | Savage Love (Laxed a Siren Beat) | 31            | Jason Derulo    |              |
+| 106         | That's the Way Love Goes | 70            | Janet Jackson   | 207          |
+| 114         | Can't Help Falling in Love | 75            | Elvis Presley   | 18           |
+| 119         | Crazy in Love | 2             | Beyonce         | 30           |
+| 149         | Love The Way You Lie (feat. Rihanna) | 38            | Eminem          | 244          |
+| 162         | Lose You to Love Me | 27            | Selena Gomez    | 179          |
+| 172         | I Like It,  I Love It | 90            | Tim McGraw      | 159          |
+| 210         | Isn't She Lovely | 69            | Stevie Wonder   | 195          |
+| 218         | I Just Called to Say I Love You | 69            | Stevie Wonder   | 14           |
+| 221         | We Found Love | 9             | Rihanna         | 224          |
+| 230         | Love Story    | 84            | Taylor Swift    | 182          |
+| 238         | I Will Always Love You | 65            | Whitney Houston | 89           |
+| 242         | As Long as You Love Me | 56            | Backstreet Boys | 232          |
+| 252         | This Love     | 16            | Maroon 5        | 21           |
+| 267         | I Will Always Love You | 77            | Dolly Parton    | 27           |
+| 268         | I Wanna Dance with Somebody (Who Loves Me) | 65            | Whitney Houston | 161          |
+| 286         | If You Had My Love | 41            | Jennifer Lopez  | 96           |
++ ----------- + ------------- + ------------- + --------------- + ------------ +
 22 rows
 ```
 
