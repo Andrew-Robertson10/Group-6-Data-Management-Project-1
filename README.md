@@ -146,5 +146,19 @@ WHERE songName REGEXP 'love|Love';
 
 This information is useful because love is a common theme among the most popular songs across multiple genres. A producer may want to find songs that are written about love to study trends in music listeners, or if they are creating promotional material for certain holidays like Valentine's Day.
 
+Query 8
+Finds venue employees who supervise more than 3 people. Displays the supervisor's ID, name, and the number of direct reports they have.
+SELECT
+  sup.employeeID AS supervisorID,
+  sup.employeeName AS supervisorName,
+  COUNT(sub.employeeID) AS direct_reports
+FROM Employee sup
+JOIN Employee sub ON sub.supervisorID = sup.employeeID
+GROUP BY sup.employeeID, sup.employeeName
+HAVING COUNT(sub.employeeID) > 3
+ORDER BY direct_reports DESC;
+
+This query is useful for organizational and budgetary insights in the event planning industry. A venue's higher management can look at this data to see which employees may be stretched too thin in their job duties. This data can also be used to streamline accountability among large teams of employees within different divisions.
+
 ## Database Information
 
