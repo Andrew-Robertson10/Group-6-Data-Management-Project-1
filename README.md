@@ -169,5 +169,22 @@ ORDER BY SongCount DESC;
 
 This query is important for identifying which albums represent the largest creative outputs. Albums with more songs indicate more production effort or studio time, which reflects on budgeting. It can also help allocate resources and show trends in artist productivity.
 
+
+Query 10
+Returns the ID number, name, and number of Taylor Swift concerts attended for fans who have attended more than 5 Taylor Swift concerts.
+  ConcertsAttended.fanID,
+  Fan.fanName,
+  COUNT(*) AS times_attended
+FROM ConcertsAttended
+JOIN Concert
+  ON ConcertsAttended.date = Concert.date
+ AND ConcertsAttended.startTime = Concert.startTime AND ConcertsAttended.endTime = ConcertsAttended.endTime
+JOIN Fan ON Fan.fanID = ConcertsAttended.fanID
+WHERE Concert.headlinerArtistID = 1
+GROUP BY ConcertsAttended.fanID, Fan.fanName
+HAVING COUNT(*) > 5
+ORDER BY times_attended DESC;
+
+This query is useful because Taylor Swift is known for having one of the most dedicated fan bases of any artist. Knowing who her biggest fans are and who is most likely to attend her concerts is very useful for her when she releases new music or goes on tour. Her managers and producers can target these fans since they are most likely to make a purchase.
 ## Database Information
 
