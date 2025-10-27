@@ -2154,5 +2154,9 @@ This query is useful because Taylor Swift is known for having one of the most de
 
 ## Database Information
 Name of the database: `ns_F25MIST4610_15058_Group6`
-Additional information: Each query listed above is marked in the database using stored procedures, which can be called using the following format: CALL TP_Qx(); 
+Additional information: Each query listed above is marked in the database using stored procedures, which can be called using the following format:
+
+CALL TP_Qx(); 
+
 (where x is the query number)
+
