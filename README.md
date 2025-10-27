@@ -1873,6 +1873,9 @@ This query is useful for finding albums and artists that are less popular. Artis
 Query 10
 
 Returns the ID number, name, and number of Taylor Swift concerts attended for fans who have attended more than 5 Taylor Swift concerts.
+```
+Execute:
+> SELECT
   ConcertsAttended.fanID,
   Fan.fanName,
   COUNT(*) AS times_attended
@@ -1884,8 +1887,17 @@ JOIN Fan ON Fan.fanID = ConcertsAttended.fanID
 WHERE Concert.headlinerArtistID = 1
 GROUP BY ConcertsAttended.fanID, Fan.fanName
 HAVING COUNT(*) > 5
-ORDER BY times_attended DESC;
+ORDER BY times_attended DESC
+
++ ---------- + ------------ + ------------------- +
+| fanID      | fanName      | times_attended      |
++ ---------- + ------------ + ------------------- +
+| 2222       | Marcus Rivera | 6                   |
++ ---------- + ------------ + ------------------- +
+1 rows
+```
 
 This query is useful because Taylor Swift is known for having one of the most dedicated fan bases of any artist. Knowing who her biggest fans are and who is most likely to attend her concerts is very useful for her when she releases new music or goes on tour. Her managers and producers can target these fans since they are most likely to make a purchase.
+
 ## Database Information
 
