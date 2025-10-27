@@ -58,7 +58,9 @@ The Venue entity includes details about the venue's location, name, and maximum 
 
 
 ## Queries
-Query 1 lists each fan's name as well as the names of the artists whose concerts they have attended.
+Query 1
+
+Lists each fan's name as well as the names of the artists whose concerts they have attended.
 ```
 Execute:
 > SELECT fanName, artistName
@@ -969,6 +971,7 @@ JOIN Artist ON Concert.headlinerArtistID = Artist.ArtistID
 This query is useful for determining which artists a fan likes the most and displaying the results in an easy-to-read format. If someone has attended an artist's concert, it is logical to assume that they love that artist more than the average fan. This information can be useful for targeting advertisements, new music releases, and merchandise by the artist.
 
 Query 2 
+
 Lists each album’s ID and title, the album’s primary artist, and the number of songs on that album, returning only albums that contain at least one song and ordering results from most tracks to fewest. 
 ```
 Execute:
@@ -1227,6 +1230,7 @@ ORDER BY song_count DESC
 This query reveals which albums have the largest tracklists so product, marketing, and A&R(Artists and Repertoire) teams can prioritize releases for deluxe editions, bundle or promotion opportunities. It also helps identify albums with high track counts that may warrant additional marketing investment.
 
 Query 3
+
 Lists each artist's name, ID, and most-awarded album.
 
 SELECT Artist.artistID, Artist.artistName, Album.albumID, Album.albumName, (SELECT COUNT(*) FROM Award WHERE Award.albumID = Album.albumID) AS "Award Count"
@@ -1246,6 +1250,7 @@ This query is useful for artists and producers to see which album an artist prod
 
 
 Query 4
+
 Lists the ID and name of each venue and orders them by the number of concerts held at the venue. The most popular venues with the most concerts are listed first, while venues with the least number of concerts are listed last.
 SELECT Venue.venueID, Venue.venueName, Venue.city, COUNT(*) AS "Number of Concerts"
 FROM Concert
@@ -1257,6 +1262,7 @@ This query is useful for artists to use when planning concerts. They may want to
 
 
 Query 5
+
 Lists artists who have released at least 3 albums.
 SELECT Artist.artistID, artistName,
  COUNT(albumID) AS "Album count"
@@ -1270,6 +1276,7 @@ This query is useful because it highlights experienced and established artists i
 
 
 Query 6
+
 Returns every venue with its name and the number of employees who work there, including venues with zero employees, sorted from most staffed to least staffed
 SELECT Venue.venueID, Venue.venueName, COUNT(Employee.employeeID) AS employee_count
 FROM Venue
@@ -1280,6 +1287,7 @@ ORDER BY employee_count DESC;
 Provides a quick staffing snapshot per location so managers can identify overstaffed or understaffed venues, allocate or reassign personnel, plan hiring, and prioritize operational support where headcount is low.
 
 Query 7
+
 Find songs with the word "love" in the title and displays the song's ID, the name of the song, the ID of the artist who created it, the artist's name, and the album the song is in.
 SELECT
   songID,
@@ -1294,6 +1302,7 @@ WHERE songName REGEXP 'love|Love';
 This information is useful because love is a common theme among the most popular songs across multiple genres. A producer may want to find songs that are written about love to study trends in music listeners, or if they are creating promotional material for certain holidays like Valentine's Day.
 
 Query 8
+
 Finds venue employees who supervise more than 3 people. Displays the supervisor's ID, name, and the number of direct reports they have.
 SELECT
   sup.employeeID AS supervisorID,
@@ -1308,6 +1317,7 @@ ORDER BY direct_reports DESC;
 This query is useful for organizational and budgetary insights in the event planning industry. A venue's higher management can look at this data to see which employees may be stretched too thin in their job duties. This data can also be used to streamline accountability among large teams of employees within different divisions.
 
 Query 9
+
 Displays the album ID, album name, artist ID, and artist name of albums that did not receive any awards.
 ```
 Execute:
@@ -1531,6 +1541,7 @@ ORDER BY Artist.artistName, Album.albumName
 This query is useful for finding albums and artists that are less popular. Artists may use this information to find out what types of songs are not popular with fans. Fans may use this information to find underground artists that they have not heard of before.
 
 Query 10
+
 Returns the ID number, name, and number of Taylor Swift concerts attended for fans who have attended more than 5 Taylor Swift concerts.
   ConcertsAttended.fanID,
   Fan.fanName,
