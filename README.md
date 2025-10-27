@@ -31,8 +31,7 @@ The Fan entity is identified by the fan's unique ID number and includes details 
 
 The Venue entity includes details about the venue's location, name, and maximum occupancy. It features a one-to-one relationship with Employee to identify the manager of the venue. It also has a one-to-many relationship with Employee to keep track of all of the employees that work at each venue. Many employees work at one venue, and one employee is designated as the manager of one venue. The Employee attribute features the employee's identifying ID number and details about their name, address, and the venue they work at. Employee also has a recursive one-to-many relationship with itself to identify an employee's supervisor. One employee supervises multiple other employees.
 
-
-<img width="957" height="875" alt="Image" src="https://github.com/user-attachments/assets/3c520930-4e7b-425d-a297-4b3b1fabb744" />
+<img width="957" height="875" alt="Image" src="https://github.com/user-attachments/assets/73da4a26-3b69-440e-9ae0-b01ae2cac226" />
 
 ## Data Dictionary
 <img width="932" height="406" alt="Image" src="https://github.com/user-attachments/assets/3475d326-9ebd-4ffa-9dbb-4315dba0e269" />
