@@ -1060,15 +1060,225 @@ ORDER BY direct_reports DESC;
 This query is useful for organizational and budgetary insights in the event planning industry. A venue's higher management can look at this data to see which employees may be stretched too thin in their job duties. This data can also be used to streamline accountability among large teams of employees within different divisions.
 
 Query 9
-SELECT Album.albumID, Album.albumName, Artist.artistName, COUNT(Song.songID) AS SongCount
+Displays the album ID, album name, artist ID, and artist name of albums that did not receive any awards.
+Execute:
+> SELECT Album.albumID, Album.albumName, Artist.artistID, Artist.artistName
 FROM Album
-JOIN Artist ON Artist.artistID = Album.artistID
-JOIN Song ON Song.albumID = Album.albumID
-GROUP BY Album.albumID, Album.albumName, Artist.artistName
-ORDER BY SongCount DESC;
+JOIN Artist ON Album.artistID = Artist.artistID
+WHERE NOT EXISTS (
+  SELECT *
+  FROM Award
+  WHERE Award.albumID = Album.albumID
+)
+ORDER BY Artist.artistName, Album.albumName
 
-This query is important for identifying which albums represent the largest creative outputs. Albums with more songs indicate more production effort or studio time, which reflects on budgeting. It can also help allocate resources and show trends in artist productivity.
++ ------------ + -------------- + ------------- + --------------- +
+| albumID      | albumName      | artistID      | artistName      |
++ ------------ + -------------- + ------------- + --------------- +
+| 222          | Girl on Fire   | 44            | Alicia Keys     |
+| 133          | The Blueprint 3 (Jay-Z Album) | 44            | Alicia Keys     |
+| 72           | Let Go         | 43            | Avril Lavigne   |
+| 232          | Backstreet's Back | 56            | Backstreet Boys |
+| 208          | Millennium     | 56            | Backstreet Boys |
+| 1            | Guilty         | 73            | Barbra Streisand |
+| 186          | The Way We Were (Soundtrack) | 73            | Barbra Streisand |
+| 230          | Blake Shelton  | 86            | Blake Shelton   |
+| 98           | Single         | 86            | Blake Shelton   |
+| 109          | Highway 61 Revisited | 67            | Bob Dylan       |
+| 10           | The Freewheelin' Bob Dylan | 67            | Bob Dylan       |
+| 147          | The Times They Are a-Changin' | 67            | Bob Dylan       |
+| 112          | ...Baby One More Time | 45            | Britney Spears  |
+| 160          | Blackout       | 45            | Britney Spears  |
+| 83           | In the Zone    | 45            | Britney Spears  |
+| 119          | 18 Months      | 25            | Calvin Harris   |
+| 88           | Motion         | 25            | Calvin Harris   |
+| 25           | Single         | 25            | Calvin Harris   |
+| 94           | Shawn Mendes (Deluxe) | 28            | Camila Cabello  |
+| 56           | The Hurting. The Healing. The Loving. | 28            | Camila Cabello  |
+| 239          | Invasion of Privacy | 30            | Cardi B         |
+| 151          | Single         | 30            | Cardi B         |
+| 47           | Blown Away     | 85            | Carrie Underwood |
+| 43           | Some Hearts    | 85            | Carrie Underwood |
+| 145          | Furious 7 (Soundtrack) | 33            | Charlie Puth    |
+| 157          | Nine Track Mind | 33            | Charlie Puth    |
+| 24           | Voicenotes     | 33            | Charlie Puth    |
+| 62           | Heart of Stone | 72            | Cher            |
+| 249          | Look at Us (Sonny & Cher Album) | 72            | Cher            |
+| 46           | Christina Aguilera | 46            | Christina Aguilera |
+| 49           | Stripped       | 46            | Christina Aguilera |
+| 118          | Parachutes     | 15            | Coldplay        |
+| 166          | Viva La Vida or Death and All His Friends | 15            | Coldplay        |
+| 251          | X&Y            | 15            | Coldplay        |
+| 152          | David Bowie (Space Oddity) | 68            | David Bowie     |
+| 33           | Heroes         | 68            | David Bowie     |
+| 130          | Demi           | 54            | Demi Lovato     |
+| 4            | Tell Me You Love Me | 54            | Demi Lovato     |
+| 172          | Unbroken       | 54            | Demi Lovato     |
+| 212          | Survivor       | 58            | Destiny's Child |
+| 163          | The Writing's on the Wall | 58            | Destiny's Child |
+| 77           | 9 to 5 and Odd Jobs | 77            | Dolly Parton    |
+| 27           | Jolene         | 77            | Dolly Parton    |
+| 200          | Dua Lipa       | 24            | Dua Lipa        |
+| 40           | Honky Chateau  | 63            | Elton John      |
+| 110          | Madman Across the Water | 63            | Elton John      |
+| 97           | The Lockdown Sessions | 63            | Elton John      |
+| 18           | Blue Hawaii (Soundtrack) | 75            | Elvis Presley   |
+| 221          | Single         | 75            | Elvis Presley   |
+| 243          | Single         | 75            | Elvis Presley   |
+| 173          | 8 Mile (Soundtrack) | 38            | Eminem          |
+| 244          | Recovery       | 38            | Eminem          |
+| 116          | The Marshall Mathers LP | 38            | Eminem          |
+| 143          | The Outsiders  | 95            | Eric Church     |
+| 177          | Breathe        | 91            | Faith Hill      |
+| 241          | Faith          | 91            | Faith Hill      |
+| 156          | Take Me as I Am | 91            | Faith Hill      |
+| 117          | Dig Your Roots | 96            | Florida Georgia Line |
+| 174          | Here's to the Good Times | 96            | Florida Georgia Line |
+| 55           | It Might as Well Be Swing | 74            | Frank Sinatra   |
+| 74           | My Way         | 74            | Frank Sinatra   |
+| 205          | Trilogy: Past, Present & Future | 74            | Frank Sinatra   |
+| 215          | In Pieces      | 82            | Garth Brooks    |
+| 132          | No Fences      | 82            | Garth Brooks    |
+| 127          | Always Never the Same | 81            | George Strait   |
+| 51           | Pure Country (Soundtrack) | 81            | George Strait   |
+| 203          | Strait from the Heart | 81            | George Strait   |
+| 11           | Love. Angel. Music. Baby. | 48            | Gwen Stefani    |
+| 175          | Collage (EP)   | 32            | Halsey          |
+| 227          | Manic          | 32            | Halsey          |
+| 211          | Single         | 32            | Halsey          |
+| 58           | Evolve         | 17            | Imagine Dragons |
+| 70           | Night Visions  | 17            | Imagine Dragons |
+| 153          | Control        | 70            | Janet Jackson   |
+| 79           | Janet Jackson's Rhythm Nation 1814 | 70            | Janet Jackson   |
+| 207          | janet.         | 70            | Janet Jackson   |
+| 185          | My Kinda Party | 88            | Jason Aldean    |
+| 15           | Old Boots, New Dirt | 88            | Jason Aldean    |
+| 64           | Wide Open      | 88            | Jason Aldean    |
+| 149          | Jason Derulo   | 31            | Jason Derulo    |
+| 121          | Single         | 31            | Jason Derulo    |
+| 252          | Tattoos/Talk Dirty | 31            | Jason Derulo    |
+| 190          | Love?          | 41            | Jennifer Lopez  |
+| 96           | On the 6       | 41            | Jennifer Lopez  |
+| 184          | Get Lifted     | 23            | John Legend     |
+| 9            | Love in the Future | 23            | John Legend     |
+| 242          | Selma (Soundtrack) | 23            | John Legend     |
+| 220          | American IV: The Man Comes Around | 76            | Johnny Cash     |
+| 84           | Ring of Fire: The Best of Johnny Cash | 76            | Johnny Cash     |
+| 5            | With His Hot and Blue Guitar | 76            | Johnny Cash     |
+| 139          | FutureSex/LoveSounds | 50            | Justin Timberlake |
+| 250          | Justified      | 50            | Justin Timberlake |
+| 155          | The 20/20 Experience | 50            | Justin Timberlake |
+| 106          | Golden Hour    | 93            | Kacey Musgraves |
+| 68           | Same Trailer Different Park | 93            | Kacey Musgraves |
+| 245          | Graduation     | 20            | Kanye West      |
+| 128          | Late Registration | 20            | Kanye West      |
+| 126          | My Beautiful Dark Twisted Fantasy | 20            | Kanye West      |
+| 216          | Be Here        | 89            | Keith Urban     |
+| 187          | Golden Road    | 89            | Keith Urban     |
+| 120          | Ripcord        | 89            | Keith Urban     |
+| 167          | Breakaway      | 47            | Kelly Clarkson  |
+| 75           | Stronger       | 47            | Kelly Clarkson  |
+| 176          | Eyes That See in the Dark | 79            | Kenny Rogers    |
+| 189          | Kenny Rogers' Greatest Hits | 79            | Kenny Rogers    |
+| 235          | The Gambler    | 79            | Kenny Rogers    |
+| 114          | Lady Antebellum | 98            | Lady A          |
+| 102          | Need You Now   | 98            | Lady A          |
+| 193          | Own the Night  | 98            | Lady A          |
+| 233          | A Star Is Born (Soundtrack) | 6             | Lady Gaga       |
+| 78           | Born to Die    | 37            | Lana Del Rey    |
+| 113          | The Great Gatsby (Soundtrack) | 37            | Lana Del Rey    |
+| 125          | 7 (EP)         | 52            | Lil Nas X       |
+| 197          | Pain Killer    | 99            | Little Big Town |
+| 188          | The Breaker    | 99            | Little Big Town |
+| 228          | Tornado        | 99            | Little Big Town |
+| 246          | Melodrama      | 21            | Lorde           |
+| 67           | Pure Heroine   | 21            | Lorde           |
+| 87           | Crash My Party | 87            | Luke Bryan      |
+| 181          | Tailgates & Tanlines | 87            | Luke Bryan      |
+| 66           | I'm Breathless | 64            | Madonna         |
+| 134          | Like a Virgin  | 64            | Madonna         |
+| 180          | Hands All Over (Re-release) | 16            | Maroon 5        |
+| 21           | Songs About Jane | 16            | Maroon 5        |
+| 8            | Single         | 34            | Marshmello      |
+| 154          | Single         | 34            | Marshmello      |
+| 236          | Single         | 34            | Marshmello      |
+| 191          | Title          | 53            | Meghan Trainor  |
+| 65           | I'm a Lonesome Fugitive | 80            | Merle Haggard   |
+| 115          | Mama Tried     | 80            | Merle Haggard   |
+| 57           | Okie from Muskogee | 80            | Merle Haggard   |
+| 129          | Bad            | 62            | Michael Jackson |
+| 253          | Thriller       | 62            | Michael Jackson |
+| 140          | Bangerz        | 22            | Miley Cyrus     |
+| 7            | Endless Summer Vacation | 22            | Miley Cyrus     |
+| 100          | The Time of Our Lives (EP) | 22            | Miley Cyrus     |
+| 105          | Kerosene       | 92            | Miranda Lambert |
+| 29           | Revolution     | 92            | Miranda Lambert |
+| 85           | Wildcard       | 92            | Miranda Lambert |
+| 99           | Country Grammar | 51            | Nelly           |
+| 171          | Nellyville     | 51            | Nelly           |
+| 162          | No Strings Attached | 57            | NSYNC           |
+| 42           | NSYNC          | 57            | NSYNC           |
+| 150          | Midnight Memories | 55            | One Direction   |
+| 63           | Up All Night   | 55            | One Direction   |
+| 81           | Greatest Hits... So Far!!! | 36            | P!nk            |
+| 158          | M!ssundaztood  | 36            | P!nk            |
+| 138          | The Truth About Love | 36            | P!nk            |
+| 48           | Meltdown (EP)  | 40            | Pitbull         |
+| 231          | Planet Pit     | 40            | Pitbull         |
+| 123          | Rebelution     | 40            | Pitbull         |
+| 111          | Hollywood's Bleeding | 29            | Post Malone     |
+| 165          | Spider-Man: Into the Spider-Verse (Soundtrack) | 29            | Post Malone     |
+| 38           | Stoney         | 29            | Post Malone     |
+| 218          | Parade         | 66            | Prince          |
+| 103          | Purple Rain    | 66            | Prince          |
+| 39           | A Night at the Opera | 61            | Queen           |
+| 32           | News of the World | 61            | Queen           |
+| 196          | The Game       | 61            | Queen           |
+| 225          | Feels Like Today | 100           | Rascal Flatts   |
+| 93           | Me and My Gang | 100           | Rascal Flatts   |
+| 16           | Gloria         | 18            | Sam Smith       |
+| 122          | The Thrill of It All | 18            | Sam Smith       |
+| 179          | Rare           | 27            | Selena Gomez    |
+| 45           | Revival        | 27            | Selena Gomez    |
+| 192          | Stars Dance    | 27            | Selena Gomez    |
+| 2            | Listen Up! The Official 2010 FIFA World Cup Album | 39            | Shakira         |
+| 223          | Oral Fixation Vol. 2 | 39            | Shakira         |
+| 217          | Come On Over   | 83            | Shania Twain    |
+| 142          | 1000 Forms of Fear | 19            | Sia             |
+| 137          | This Is Acting | 19            | Sia             |
+| 202          | Spice          | 59            | Spice Girls     |
+| 104          | Spiceworld     | 59            | Spice Girls     |
+| 195          | Songs in the Key of Life | 69            | Stevie Wonder   |
+| 141          | Talking Book   | 69            | Stevie Wonder   |
+| 182          | Fearless       | 84            | Taylor Swift    |
+| 80           | Taylor Swift   | 84            | Taylor Swift    |
+| 201          | Help!          | 60            | The Beatles     |
+| 234          | Let It Be      | 60            | The Beatles     |
+| 204          | Single         | 60            | The Beatles     |
+| 90           | Bouquet (EP)   | 35            | The Chainsmokers |
+| 76           | Collage (EP)   | 35            | The Chainsmokers |
+| 36           | Memories...Do Not Open | 35            | The Chainsmokers |
+| 159          | All I Want     | 90            | Tim McGraw      |
+| 183          | Damn Country Music | 90            | Tim McGraw      |
+| 50           | Live Like You Were Dying | 90            | Tim McGraw      |
+| 136          | Foreign Affair | 71            | Tina Turner     |
+| 237          | Private Dancer | 71            | Tina Turner     |
+| 73           | Confessions    | 42            | Usher           |
+| 108          | Versus (EP)    | 42            | Usher           |
+| 89           | The Bodyguard (Soundtrack) | 65            | Whitney Houston |
+| 161          | Whitney        | 65            | Whitney Houston |
+| 92           | Whitney Houston | 65            | Whitney Houston |
+| 169          | Always On My Mind | 78            | Willie Nelson   |
+| 168          | Honeysuckle Rose (Soundtrack) | 78            | Willie Nelson   |
+| 82           | Red Headed Stranger | 78            | Willie Nelson   |
+| 144          | You Get What You Give | 97            | Zac Brown Band  |
+| 178          | Fifty Shades Darker (Soundtrack) | 26            | Zayn            |
+| 148          | Mind of Mine   | 26            | Zayn            |
+| 214          | Single         | 26            | Zayn            |
++ ------------ + -------------- + ------------- + --------------- +
+200 rows
 
+This query is useful for finding albums and artists that are less popular. Artists may use this information to find out what types of songs are not popular with fans. Fans may use this information to find underground artists that they have not heard of before.
 
 Query 10
 Returns the ID number, name, and number of Taylor Swift concerts attended for fans who have attended more than 5 Taylor Swift concerts.
