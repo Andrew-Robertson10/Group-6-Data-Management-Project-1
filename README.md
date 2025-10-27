@@ -132,6 +132,19 @@ ORDER BY employee_count DESC;
 
 Provides a quick staffing snapshot per location so managers can identify overstaffed or understaffed venues, allocate or reassign personnel, plan hiring, and prioritize operational support where headcount is low.
 
+Query 7
+Find songs with the word "love" in the title and displays the song's ID, the name of the song, the ID of the artist who created it, the artist's name, and the album the song is in.
+SELECT
+  songID,
+  songName,
+  Song.artistID,
+  artistName
+  albumID
+FROM Song
+JOIN Artist ON Song.artistID = Artist.artistID
+WHERE songName REGEXP 'love|Love';
+
+This information is useful because love is a common theme among the most popular songs across multiple genres. A producer may want to find songs that are written about love to study trends in music listeners, or if they are creating promotional material for certain holidays like Valentine's Day.
 
 ## Database Information
 
