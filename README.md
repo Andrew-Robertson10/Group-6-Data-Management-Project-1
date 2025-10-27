@@ -59,6 +59,7 @@ The Venue entity includes details about the venue's location, name, and maximum 
 
 ## Queries
 Query 1 lists each fan's name as well as the names of the artists whose concerts they have attended.
+```
 Execute:
 > SELECT fanName, artistName
 FROM Fan
@@ -963,7 +964,7 @@ JOIN Artist ON Concert.headlinerArtistID = Artist.ArtistID
 | Moise Jebb   | Little Big Town |
 + ------------ + --------------- +
 892 rows
-
+```
 
 This query is useful for determining which artists a fan likes the most and displaying the results in an easy-to-read format. If someone has attended an artist's concert, it is logical to assume that they love that artist more than the average fan. This information can be useful for targeting advertisements, new music releases, and merchandise by the artist.
 
@@ -1061,6 +1062,7 @@ This query is useful for organizational and budgetary insights in the event plan
 
 Query 9
 Displays the album ID, album name, artist ID, and artist name of albums that did not receive any awards.
+```
 Execute:
 > SELECT Album.albumID, Album.albumName, Artist.artistID, Artist.artistName
 FROM Album
@@ -1277,6 +1279,7 @@ ORDER BY Artist.artistName, Album.albumName
 | 214          | Single         | 26            | Zayn            |
 + ------------ + -------------- + ------------- + --------------- +
 200 rows
+```
 
 This query is useful for finding albums and artists that are less popular. Artists may use this information to find out what types of songs are not popular with fans. Fans may use this information to find underground artists that they have not heard of before.
 
